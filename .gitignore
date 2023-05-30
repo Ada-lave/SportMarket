@@ -1,2 +1,11 @@
 env/pyvenv.cfg
 env
+MarketSport/apps/cart/__pycache__
+MarketSport/apps/core/__pycache__
+MarketSport/apps/store/__pycache__
+MarketSport/apps/order/__pycache__
+MarketSport/MarketSport/__pycache__
+MarketSport/apps/cart/migrations/__pycache__
+MarketSport/apps/core/migrations/__pycache__
+MarketSport/apps/store/migrations/__pycache__
+MarketSport/apps/order/migrations/__pycache__
