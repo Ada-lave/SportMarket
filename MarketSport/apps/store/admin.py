@@ -12,6 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['title','category','price','date_add','avalible']
     list_filter = ('category','price','date_add')
     
+    
 
    
 

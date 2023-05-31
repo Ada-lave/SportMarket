@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.conf import settings
+import datetime as dt
 import os
 
 
@@ -25,8 +26,9 @@ class Product(models.Model):
     price = models.FloatField(verbose_name='Цена')
     image = models.ImageField(blank=True)
     avalible = models.BooleanField(default=True, verbose_name='В наличии')
-    date_add = models.DateField(auto_now_add=True, verbose_name='Дата добавления')
+    date_add = models.DateField()
     date_update = models.DateField(auto_now=True)
+    
 
     class Meta:
         verbose_name = 'Товар'
@@ -34,6 +36,15 @@ class Product(models.Model):
     
     def __str__(self):
         return self.title
+
+    def newOrOldProduct(self):
+        
+        if (dt.datetime.now().date()-self.date_add)<dt.timedelta(days=10):
+            print(self.date_add - dt.datetime.now().date())
+            return True
+        else:
+            return False
+
 
     def save(self, *args, **kwargs):
         file_name = self.category.title
