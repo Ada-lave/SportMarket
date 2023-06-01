@@ -18,16 +18,30 @@ class Category(models.Model):
         return self.title
 
 
+
 class Product(models.Model):
+    CHOICES_GENDER = (
+        ('m', 'мужской'),
+        ('f', 'женский')
+    )
+
     title = models.CharField(max_length=120, verbose_name='Название')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     slug = models.SlugField()
-    descriptions = models.TextField(blank=True)
+    descriptions = models.TextField(blank=True, verbose_name='Описание')
     price = models.FloatField(verbose_name='Цена')
     image = models.ImageField(blank=True)
     avalible = models.BooleanField(default=True, verbose_name='В наличии')
+    material = models.CharField(max_length=400, verbose_name="Материал", blank=True)
+    sports_type = models.CharField(max_length=40, verbose_name="Вид спорта")
+    season = models.CharField(max_length=40, verbose_name="Сезон")
+    gender = models.CharField(max_length=40, choices=CHOICES_GENDER, verbose_name="Пол", blank=True)
+    brand = models.CharField(max_length=120, verbose_name="Брэнд")
+    size = models.CharField(max_length=40, verbose_name="Размер")
+
     date_add = models.DateField()
     date_update = models.DateField(auto_now=True)
+
     
 
     class Meta:
