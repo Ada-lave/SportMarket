@@ -29,6 +29,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -68,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.store.context.menu_categories'
             ],
         },
     },
