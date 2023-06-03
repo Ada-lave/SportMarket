@@ -4,5 +4,5 @@ from apps.cart.views import *
 urlpatterns = [
     path('', TestDate, name='mainpage'),
     path('cart/', showCart, name='cart'),
-    path('search/', searhInMainPage, name='searh')
+    path('search/', searhInMainPage, name='search')
 ]

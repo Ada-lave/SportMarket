@@ -70,7 +70,7 @@
 
                 <ul class="MenuUserList">
                     <li class="MenuUserItem"><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></li>
-                    <form action="search" method="GET" >
+                    <form action="{% url 'search' %}" method="GET" >
                       <input class="SearchInput" type="text" name="q">
                     </form>
                     
