@@ -1,0 +1,86 @@
+.basement{
+    width: 100%;
+    background-color:black;
+    min-height: 170px;
+    
+}
+
+.MainBasement{
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.FooterLogoTextMain{
+    margin-top: 20px;
+    
+    display: flex;
+    justify-content: center;
+  
+}
+
+.FooterLogoText{
+    margin-right: 20px;
+    color: #fff;
+}
+
+.FooterImg{
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+
+.ContactsGrid{
+
+    display: flex;
+   justify-content: center;
+   
+}
+
+.ContactsItem a{
+    color: #fff;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    
+}
+
+
+
+
+
+.ContacsItemCenter{
+
+    margin-right: 321px;
+    margin-left: 321px;
+}
+
+
+
+.ContactsItem p{
+    
+    
+}
+
+.VkLink{
+    margin-top: 3px
+}
+
+.vk{
+    display: flex;
+}
+.phone{
+    display: flex;
+}
+
+
+.PhoneLink{
+    margin-top: 7px
+}
+
+.phoneItem{
+    margin-left: 3px;
+   margin-top: -10px
+}
