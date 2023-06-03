@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Product
+from django.shortcuts import render, get_object_or_404
+from .models import Product, Category
 
 def TestDate(request):
     products = Product.objects.all()
@@ -15,3 +15,17 @@ def searhInMainPage(request):
         'products': products
     }
     return render (request, 'main.html', context)
+
+
+def categoryDetail(request, slug):
+    cat = get_object_or_404(Category, slug=slug)
+    products = cat.product.all()
+
+    context = {
+        "products" : products
+    }
+
+    return render(request, 'category_detail.html', context)
+
+def productDetail(request):
+    return render(request, 'product_detail.html')
