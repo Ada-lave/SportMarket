@@ -1,3 +1,144 @@
-.test {
-    color: red;
+body,html{
+    
+height: 100%;
+
+}
+
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Main{
+    flex-grow: 1;
+    
+}
+
+
+.HistoryLink a{
+    margin-right: 27px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    
+    color: #A09E9E;
+    text-decoration: none;
+
+}
+
+.HistoryLink img{
+    margin-right: 23px;
+}
+
+.HistoryLink{
+    margin-top: 13px;
+}
+
+
+.SliderListItem{
+    background-color: #A09E9E;
+    width: 100px;
+    height: 126px;
+    margin-bottom: 28px;
+}
+
+
+.Product{
+    display: flex;
+    margin-top: 40px;
+}
+
+
+.MainImg{
+    margin-left: 80px;
+    width: 499px;
+    height: 588px;
+    background-color: #A09E9E;
+}
+
+
+
+
+
+.ProductInformation{
+    margin-left: 80px;
+}
+
+.ProductHeading{
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+
+}
+
+
+.ProductCategory{
+    margin-top: 19px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 29px;
+
+    color: #979797;
+}
+
+
+.ProductCategoryLink{
+    text-decoration: none;
+}
+
+.ProductPrice{
+  
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    color: #000000;
+}
+
+
+.ColorListHeading{
+    margin-top: 30px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #979797;
+
+}
+
+.ColorProduct{
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+}
+
+.ColorList{
+    display: flex;
+
+}
+
+
+.SizeListHeading{
+    margin-top: 42px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 29px;
+    color: #979797;
 }
