@@ -70,7 +70,10 @@
 
                 <ul class="MenuUserList">
                     <li class="MenuUserItem"><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></li>
-                    <input class="SearchInput" type="text">
+                    <form action="search" method="GET" >
+                      <input class="SearchInput" type="text" name="q">
+                    </form>
+                    
                     <li class="MenuUserItem"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></li>
                     <li class="MenuUserItem"><img src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile"></li>
                 </ul>
