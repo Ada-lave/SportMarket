@@ -31,7 +31,7 @@ class Cart(object):
         self.session.modified = True
 
     def add(self, product, quantity, update_q=False):
-        id = product.id
+        id = str(product.id)
         title = product.title
         price = product.price
         size = product.size
@@ -44,11 +44,27 @@ class Cart(object):
         if update_q==False:
             self.cart[id]['quantity'] = 1
         
+        
         self.save()
 
     def remove(self, id):
         if id in self.cart:
             del self.cart[id]
             self.save()
+
+    
+
+    def increment(self, id):
+        if id in self.cart:
+            self.cart[id]['quantity'] += 1
+            print('inc')
+            self.save()
+    
+    def decrement(self, id):
+        if id in self.cart:
+            print('dec')
+            self.cart[id]['quantity'] -= 1
+            self.save()
+        
         
     

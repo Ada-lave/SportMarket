@@ -7,3 +7,11 @@ def TestDate(request):
         'products': products
     }
     return render(request, 'mainpage.html',context)
+
+def searhInMainPage(request):
+    qer = request.GET.get('q')
+    products = Product.objects.filter(title__contains=qer)
+    context = {
+        'products': products
+    }
+    return render (request, 'mainpage.html', context)

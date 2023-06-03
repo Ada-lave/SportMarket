@@ -16,9 +16,30 @@ def apiAddToCart(request):
 
     product = get_object_or_404(Product, pk=id)
 
-    if update==False:
+    if update == False:
         cart.add(product=product, quantity=qua, update_q=False)
         print(cart.__dict__)
-        return JsonResponse({"AddtoCart":True})
+
+        print(len(cart))
+        return JsonResponse({"AddtoCart": True})
     else:
-        return JsonResponse({"status":'bad'})
+        return JsonResponse({"status": 'bad'})
+
+
+def apiIncrementCart(request):
+    data = json.loads(request.body)
+    id = data['id']
+
+    cart = Cart(request)
+    cart.increment(str(id))
+    
+    return JsonResponse({'success': 'incerement'})
+
+def apiDecrementCart(request):
+    data = json.loads(request.body)
+    id = data['id']
+
+    cart = Cart(request)
+    cart.decrement(str(id))
+
+    return JsonResponse({"success":"decrement"})
