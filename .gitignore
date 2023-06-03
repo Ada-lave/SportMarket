@@ -10,3 +10,4 @@ MarketSport/apps/core/migrations/__pycache__
 MarketSport/apps/store/migrations/__pycache__
 MarketSport/apps/order/migrations/__pycache__
 MarketSport/apps/registrations/migrations/__pycache__
+MarketSport/db.sqlite3

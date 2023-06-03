@@ -6,7 +6,7 @@ def TestDate(request):
     context = {
         'products': products
     }
-    return render(request, 'mainpage.html',context)
+    return render(request, 'main.html',context)
 
 def searhInMainPage(request):
     qer = request.GET.get('q')
@@ -14,4 +14,4 @@ def searhInMainPage(request):
     context = {
         'products': products
     }
-    return render (request, 'mainpage.html', context)
+    return render (request, 'main.html', context)
