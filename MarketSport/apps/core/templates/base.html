@@ -27,15 +27,14 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0
-    ,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,
-    900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    {% block styles %} {% endblock %}
   <title>Document</title>
 </head>
 <body>
   <header>
     <div class="logo">
-            <a href="" class="logoLink">
+            <a href="{% url 'mainpage' %}" class="logoLink">
                 <img src="{% static 'imgs/navbar/logo.png' %}" alt="" class="logoImg">
             </a>
     </div>
@@ -43,7 +42,7 @@
     <div class="menu">
 
             <ul class="MenuList">
-                <li class="MenuItem"><a href="#">Главная</a></li>
+                <li class="MenuItem"><a href="{% url 'mainpage' %}">Главная</a></li>
 
                 <li class="MenuItem HorizontalMenu">
                     
@@ -52,9 +51,9 @@
                         </a>
                       
                         <ul class="dropdown-menu DropMenu" aria-labelledby="dropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Кроссовки</a></li>
-                          <li><a class="dropdown-item" href="#">Толстовки</a></li>
-                          <li><a class="dropdown-item" href="#">Лыжи</a></li>
+                          {% for cat in categories %}
+                          <li><a href="{% url 'category' cat.slug %}">{{ cat.title }}</a></li>
+                          {% endfor %}
                         </ul>
 
                 </li>
