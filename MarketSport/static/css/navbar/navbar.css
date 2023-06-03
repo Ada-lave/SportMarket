@@ -71,7 +71,7 @@ header{
     
 }
 
-.SearchInput{
+.SearchInput {
     text-align: center;
     margin-top: 4px;
     width: 150px;
@@ -80,7 +80,7 @@ header{
     opacity: 0;
     transition-duration: 0.5;
     position: absolute;
-    margin-left: -121px;
+    margin-left: -171px;
     z-index: 0;
     border: 1px solid #B8B8B8;
    
