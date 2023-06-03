@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{% url 'mainpage' %}">
+        Sports
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+
+        {% for category in categories %}
+        <a class="navbar-item"> {{ category.title }} </a>
+        {% endfor %}
+
+        <div class="navbar-item">
+          <a href="{% url 'cart' %}">Корзина</a>
+        </div>
+      </div>
+
+      <form class="navbar-item" action="{% url 'searh' %}" method="get">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" placeholder="Введите товар" name="q">
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+  </nav>
+    <section>{% block content %} {% endblock %}</section>
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
+    <script>
+      var store = new Vuex.Store({
+        state: {
+          
+        },
+        mutations: {
+          increment(state, quantity) {
+              state.NumItems += quantity
+          }
+        }
+
+      })
+    </script>
+    {% block scripts %}{% endblock %}
+    
+</body>
+</html>
