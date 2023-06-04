@@ -12,11 +12,11 @@
 {% block content %}
 <!-- Тут пиши код связанный с отображение товаров, то есть сам html-->
 
-<div class="Main">
+<div class="MainAbout" id="app">
 
     <div class="HistoryLink">
 
-        <a href="{% url 'mainpage' %}" class="CategoryLink">Главная</a>
+        <a href="{% url 'mainpage' %}" class="CategoryLink">Главная </a>
 
         <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
@@ -24,40 +24,44 @@
 
         <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
-        <a href="{% url 'productDetail' product.category.slug product.slug %}" class="CategoryLink">{{ product.title }}</a>
+        <a href="#" class="CategoryLink">{{ product.title }}</a>
 
     </div>
 
 
 
-    <div class="Product" id="product">
+    <div class="Product">
 
 
         <div class="SliderList">
 
 
             <div class="SliderListItem">
-
+                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="SliderImg">
+                <div class="Line hidden"></div>
             </div>
 
             <div class="SliderListItem">
-
+                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide2.jpg' %}" alt="" class="SliderImg">
+                <div class="Line hidden"></div>
             </div>
 
             <div class="SliderListItem">
-
+                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide3.jpg' %}" alt="" class="SliderImg">
+                <div class="Line hidden"></div>
             </div>
 
             <div class="SliderListItem">
-
+                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide4.jpg' %}" alt="" class="SliderImg">
+                <div class="Line hidden"></div>
             </div>
 
         </div>
 
 
-        <div class="MainImg">
+        <div class="MainImgWrapper">
 
-
+            <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="MainImg">
 
         </div>
     
@@ -66,7 +70,7 @@
 
         <div class="ProductInformation">
             <h1 class="ProductHeading">{{ product.title }}</h1>
-            <a class="ProductCategoryLink" href="#"><h2 class="ProductCategory">{{ product.category.title }}</h2></a>
+            <a class="ProductCategoryLink" href="{% url 'category' product.category.slug %}"><h2 class="ProductCategory">{{ product.category.title }}</h2></a>
             <p class="ProductPrice">₽ {{ product.price }}</p>
 
             <p class="ColorListHeading">Цвет</p>
@@ -82,9 +86,11 @@
 
             <div class="SizeList">
 
-                <div class="SizeItem">
+                <div class="SizeItem ">
                     <div class="SizeText">{{ product.size }}</div>
                 </div>
+
+                
 
             </div>
 
@@ -109,8 +115,7 @@
 
             <div class="Descripton">
 
-                <p>{{ product.description }}</p>
-
+                <p>{{ product.description    }}</p>
                 
             </div>
 
@@ -131,7 +136,7 @@
                                 <div class="line"></div>
 
                                 <p class="ValueSpecifications">
-                                    Резина
+                                    {{ product.material }}
                                 </p>
                             
                 
@@ -179,7 +184,7 @@
                                 <div class="line"></div>
 
                                 <p class="ValueSpecifications">
-                                    {{ product.brand }}
+                                {{ product.brand }}
                                 </p>
                             
                 
@@ -194,7 +199,7 @@
 
                 <p class="StructureHeader">
 
-                    {{ product.material }}
+                  asdasda
 
                 </p>
 
@@ -220,32 +225,24 @@
 
 
 {% block scripts %}
-    <script src="{% static 'js/navbar/header.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUV    F0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Vue -->
-
     <script>
-        var productapp = new Vue({
-            el: '#product',
-            store: store,
-            data(){
-                return {
 
-                }
-            },
+    var app = new Vue({
+        el: '#app',
+        store: store,
+        data(){
+            return {
 
-            mounted() {
-                console.log('Vue ready to work')
-            },
+            }
+        },
 
-            methods: {
-                addToCart(product_id){
-                    var data = {'id': product_id, 'update':false, 'quantity': 1}
-                    
-                    fetch('/api/add', {
-                        method: 'POST',
+        methods:{
+            addToCart(prod_id){
+
+                var data = {'id':prod_id, 'update':false, 'quantity':1}
+
+                fetch('/api/add',{
+                    method: 'POST',
                     headers: {
                         'Content-Type':'application/json',
                         'X-CSRFToken': '{{ csrf_token }}'
@@ -253,17 +250,25 @@
                     credentials: 'same-origin',
                     body: JSON.stringify(data)
                 })
-                    .then((responce) => {
-                        console.log(responce)
-                    })
-
+                .then((response) => {
+                    console.log(response)
+                    store.commit('incriment',1)
+                })
+                
                     .catch(function error(){
-                        console.log('Error to Add to Cart')
-                    }) 
+                        console.log('Error 2')
+                    })
                 }
-            }
-        })
+        }
+    })
+
     </script>
 
+    <script src="{% static 'js/About/Border.js' %}"></script>
+    <script src="{% static 'js/About/Slider.js' %}"></script>
+    <script src="{% static 'js/navbar/header.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    
 {% endblock %}

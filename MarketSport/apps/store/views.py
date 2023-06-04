@@ -18,7 +18,7 @@ def searhInMainPage(request):
     context = {
         'products': products
     }
-    return render(request, 'mainpage.html', context)
+    return render(request, 'main.html', context)
 
 
 def categoryDetail(request, slug):
