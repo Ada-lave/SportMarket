@@ -18,7 +18,7 @@ html,body{
     flex-direction: column;
 }
 .Main{
-    margin: 0 auto;
     width: 1180px;
+    margin: auto;
 }
 
