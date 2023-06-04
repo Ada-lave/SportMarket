@@ -109,7 +109,9 @@
                 <div class="CardGrid">
 
                 {% for product in products %}
+                    <a href="{% url 'productDetail' product.category.slug product.slug %}">
                   <div class="CardArea">
+                
 
                     
 
