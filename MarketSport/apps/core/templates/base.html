@@ -82,21 +82,25 @@
     </div>
 
 </header>
-
-  {% block content %}{% endblock %}
+  <section>  {% block content %}{% endblock %}</section>
 
   <footer class="basement">
         
 
-    <div class="FooterLogoTextMain">
+    <div class="MainBasement">
+      <div class="FooterLogoTextMain">
 
-        <div class="center">
-            <a href="#">
-            <img class="FooterImg" src= "{% static 'imgs/footer/logo.png' %}" alt="">
-        </a>
+        
+            <div class="LogoCenter">
+
+              <a href="#">
+                <img src="{% static 'imgs/footer/logo.png' %}" alt="">
+              </a>
 
 
-        <p class="FooterLogoText">ООО "АЛЬПАКА"</p>
+              <p class="FooterLogoText">ООО "АЛЬПАКА"</p>
+
+            </div>
 
         </div>
 
@@ -109,26 +113,31 @@
 
         <div class="ContactsItem">
             <a href="#">
-                <img src="{% static 'imgs/footer/mail.png' %}" alt="">
+              <div class="iconMail"></div>
                 po4ta@gmail.com
+                
             </a>
         </div>
 
         <div class="ContactsItem ContacsItemCenter">
             <a  class="vk" href="#">
-                <img class="vkImg" src="{% static 'imgs/footer/vk.png' %}" alt="">
-                <p class="VkLink">po4ta@gmail.com</p>
+
+                <div class="iconVk"></div>
+                po4ta@gmail.com
             </a>
         </div>
 
         <div class="ContactsItem phoneItem">
             <a class="phone" href="#">
-                <img src="{% static 'imgs/footer/phone.png' %}" alt="">
-                <p class="PhoneLink">po4ta@gmail.com</p>
+                
+               <div class="iconPhone"></div>
+                po4ta@gmail.com
+               
             </a>
         </div>
 
         
+    </div>
     </div>
 
 

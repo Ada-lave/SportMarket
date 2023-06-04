@@ -109,7 +109,9 @@
                 <div class="CardGrid">
 
                 {% for product in products %}
+                    <a href="{% url 'productDetail' product.category.slug product.slug %}">
                   <div class="CardArea">
+                
 
                     
 
@@ -144,8 +146,9 @@
                         <p class="NewPriceCard hidden">₽ 2400.00</p>
 
                     </div>
-
+                </a>
                   </div>
+                
                   {% endfor %}
                   
 

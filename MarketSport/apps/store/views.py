@@ -27,5 +27,12 @@ def categoryDetail(request, slug):
 
     return render(request, 'category_detail.html', context)
 
-def productDetail(request):
-    return render(request, 'product_detail.html')
+def productDetail(request, category_slug, product_slug):
+
+    cat = get_object_or_404(Category, slug=category_slug)
+    product = cat.product.get(slug=product_slug)
+
+    context = {
+        'product':product
+    }
+    return render(request, 'product_detail.html', context)
