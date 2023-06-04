@@ -12,19 +12,19 @@
     {% block content %}
     <!-- Тут пиши код связанный с отображение товаров, то есть сам html-->
 
-    <div class="MainAbout">
+<div class="MainAbout" id="app">
 
         <div class="HistoryLink">
 
-            <a href="#" class="CategoryLink">Главная </a>
+        <a href="{% url 'mainpage' %}" class="CategoryLink">Главная </a>
 
             <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
-            <a href="#" class="CategoryLink">Категория</a>
+        <a href="{% url 'category' product.category.slug %}" class="CategoryLink">{{ product.category.title }}</a>
 
             <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
-            <a href="#" class="CategoryLink">Товар</a>
+        <a href="#" class="CategoryLink">{{ product.title }}</a>
 
         </div>
 
@@ -68,18 +68,16 @@
 
 
 
-            <div class="ProductInformation">
-                <h1 class="ProductHeading">Reebok Energylux 2.0</h1>
-                <a class="ProductCategoryLink" href="#"><h2 class="ProductCategory">Кроссовки</h2></a>
-                <p class="ProductPrice">₽ 5400</p>
+        <div class="ProductInformation">
+            <h1 class="ProductHeading">{{ product.title }}</h1>
+            <a class="ProductCategoryLink" href="{% url 'category' product.category.slug %}"><h2 class="ProductCategory">{{ product.category.title }}</h2></a>
+            <p class="ProductPrice">₽ {{ product.price }}</p>
 
                 <p class="ColorListHeading">Цвет</p>
 
                 <div class="ColorList">
 
-                    <a href="#"><div class="ColorProduct"></div></a>
-                    <a href="#"><div class="ColorProduct"></div></a>
-                    <a href="#"><div class="ColorProduct"></div></a>
+                <a href="#"><div class="ColorProduct" style="background-color: {{ product.color }};"></div></a>
 
                 </div>
 
@@ -88,23 +86,17 @@
 
                 <div class="SizeList">
 
-                    <div class="SizeItem ">
-                        <div class="SizeText">39</div>
-                    </div>
+                <div class="SizeItem ">
+                    <div class="SizeText">{{ product.size }}</div>
+                </div>
 
-                    <div class="SizeItem">
-                        <div class="SizeText">39</div>
-                    </div>
-
-                    <div class="SizeItem">
-                        <div class="SizeText">39</div>
-                    </div>
+                
 
                 </div>
 
 
 
-                <button class="AddCartBtn">Добавить в корзину</button>
+            <button class="AddCartBtn" v-on:click="addToCart({{ product.id }})">Добавить в корзину</button>
 
             </div>
 
@@ -123,16 +115,9 @@
 
                 <div class="Descripton">
 
-                    <p>Reebok Energylux 2.0 - это удобные и стильные кроссовки для активного образа жизни.
-                        Они обеспечивают отличную амортизацию и поддержку стопы благодаря промежуточной подошве из пеноматериала EVA. </p>
-
-                    <p> Верх выполнен из дышащей сетки, что обеспечивает оптимальную вентиляцию и комфорт в течение всего дня. 
-                        Кроссовки оснащены прочной резиновой подошвой с хорошей сцепляемостью, что обеспечивает надежное сцепление с поверхностью и повышает устойчивость при движении.</p>    
-
-                    <p>Reebok Energylux 2.0 - это идеальный выбор для занятий спортом или повседневной носки.</p>
-
-                    
-                </div>
+                <p>{{ product.description    }}</p>
+                
+            </div>
 
 
             </div>
@@ -150,61 +135,61 @@
                                     <p class="NameSpecifications">Материал изделия</p>
                                     <div class="line"></div>
 
-                                    <p class="ValueSpecifications">
-                                        Резина
-                                    </p>
-                                
+                                <p class="ValueSpecifications">
+                                    {{ product.material }}
+                                </p>
+                            
+                
+                        </div>
                     
-                            </div>
-                        
-                                    
-                            <div class="SpecificationsItem">
-                                    <p class="NameSpecifications">Вид спорта</p>
-                                    <div class="line"></div>
+                                  
+                        <div class="SpecificationsItem">
+                                <p class="NameSpecifications">Вид спорта</p>
+                                <div class="line"></div>
 
-                                    <p class="ValueSpecifications">
-                                        Бег
-                                    </p>
-                                
+                                <p class="ValueSpecifications">
+                                    {{ product.sports_type }}
+                                </p>
+                            
+                
+                        </div>
                     
-                            </div>
-                        
-                                    
-                            <div class="SpecificationsItem">
-                                    <p class="NameSpecifications">Сезон</p>
-                                    <div class="line"></div>
+                                  
+                        <div class="SpecificationsItem">
+                                <p class="NameSpecifications">Сезон</p>
+                                <div class="line"></div>
 
-                                    <p class="ValueSpecifications">
-                                        На любой
-                                    </p>
-                                
+                                <p class="ValueSpecifications">
+                                    {{ product.season }}
+                                </p>
+                            
+                
+                        </div>
                     
-                            </div>
-                        
-                                    
-                            <div class="SpecificationsItem">
-                                    <p class="NameSpecifications">Пол</p>
-                                    <div class="line"></div>
+                                  
+                        <div class="SpecificationsItem">
+                                <p class="NameSpecifications">Пол</p>
+                                <div class="line"></div>
 
-                                    <p class="ValueSpecifications">
-                                        Женский
-                                    </p>
-                                
+                                <p class="ValueSpecifications">
+                                    {{ product.gender }}
+                                </p>
+                            
+                
+                        </div>
                     
-                            </div>
-                        
-                                    
-                            <div class="SpecificationsItem">
-                                    <p class="NameSpecifications">Бренд одежды</p>
-                                    <div class="line"></div>
+                                  
+                        <div class="SpecificationsItem">
+                                <p class="NameSpecifications">Бренд одежды</p>
+                                <div class="line"></div>
 
-                                    <p class="ValueSpecifications">
-                                        Бренд одежды
-                                    </p>
-                                
+                                <p class="ValueSpecifications">
+                                {{ product.brand }}
+                                </p>
+                            
+                
+                        </div>
                     
-                            </div>
-                        
 
 
 
@@ -214,7 +199,7 @@
 
                     <p class="StructureHeader">
 
-                        Материал:  Вверх: кожа, подкладка: текстиль, подошва: резина
+                  asdasda
 
                     </p>
 
@@ -239,12 +224,51 @@
     {% endblock %}
 
 
-    {% block scripts %}
-        <script src="{% static 'js/About/Border.js' %}"></script>
-        <script src="{% static 'js/About/Slider.js' %}"></script>
-        <script src="{% static 'js/navbar/header.js' %}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% block scripts %}
+    <script>
 
+    var app = new Vue({
+        el: '#app',
+        store: store,
+        data(){
+            return {
 
-    {% endblock %}
+            }
+        },
+
+        methods:{
+            addToCart(prod_id){
+
+                var data = {'id':prod_id, 'update':false, 'quantity':1}
+
+                fetch('/api/add',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response) => {
+                    console.log(response)
+                    store.commit('incriment',1)
+                })
+                
+                    .catch(function error(){
+                        console.log('Error 2')
+                    })
+                }
+        }
+    })
+
+    </script>
+
+    <script src="{% static 'js/About/Border.js' %}"></script>
+    <script src="{% static 'js/About/Slider.js' %}"></script>
+    <script src="{% static 'js/navbar/header.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+{% endblock %}

@@ -1,12 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 
+def test(request):
+    return render(request, 'test.html')
+
 def TestDate(request):
     products = Product.objects.all()
     context = {
         'products': products
     }
-    return render(request, 'main.html',context)
+    return render(request, 'main.html', context)
+
 
 def searhInMainPage(request):
     qer = request.GET.get('q')
@@ -14,7 +18,7 @@ def searhInMainPage(request):
     context = {
         'products': products
     }
-    return render (request, 'main.html', context)
+    return render(request, 'main.html', context)
 
 
 def categoryDetail(request, slug):
@@ -29,5 +33,13 @@ def categoryDetail(request, slug):
 
     return render(request, 'category_detail.html', context)
 
-def productDetail(request):
-    return render(request, 'product_detail.html')
+
+def productDetail(request, category_slug, product_slug):
+
+    cat = get_object_or_404(Category, slug=category_slug)
+    product = cat.product.get(slug=product_slug)
+
+    context = {
+        'product': product
+    }
+    return render(request, 'product_detail.html', context)

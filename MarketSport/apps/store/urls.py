@@ -7,10 +7,11 @@ urlpatterns = [
 
     #Подробнее о товаре
 
-    # path('<slug:category_slug>/<slug:product_slug>/'),
+    path('<slug:category_slug>/<slug:product_slug>/', productDetail, name='productDetail'),
 
     ###Корзина###
     path('cart/', showCart, name='cart'),
+    
 
     ###Поиск###
     path('search/', searhInMainPage, name='search'),
@@ -21,6 +22,6 @@ urlpatterns = [
 
 
     ###Заглушки для фронта###
-    path('product/', productDetail)
+
 
 ]

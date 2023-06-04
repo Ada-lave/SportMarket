@@ -5,8 +5,11 @@ from apps.cart.cart import Cart
 
 from apps.store.models import Product
 
+def test(request):
+    return JsonResponse({"resp":'resl'})
 
 def apiAddToCart(request):
+    print(request)
     data = json.loads(request.body)
     qua = data['quantity']
     id = data['id']
