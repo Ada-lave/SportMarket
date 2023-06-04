@@ -109,15 +109,15 @@
                 <div class="CardGrid">
 
                 {% for product in products %}
-                    <a href="{% url 'productDetail' product.category.slug product.slug %}">
+                    
                   <div class="CardArea">
-                
+
 
                     
 
                     <div class="MainCardItem">
 
-                        <a href="#">
+                        <a href="{% url 'productDetail' product.category.slug product.slug %}">
                             <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
                         </a>
 
@@ -146,7 +146,6 @@
                         <p class="NewPriceCard hidden">₽ 2400.00</p>
 
                     </div>
-                </a>
                   </div>
                 
                   {% endfor %}

@@ -22,8 +22,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     CHOICES_GENDER = (
-        ('m', 'мужской'),
-        ('f', 'женский')
+        ('мужской', 'мужской'),
+        ('женский', 'женский')
     )
 
     title = models.CharField(max_length=120, verbose_name='Название')
