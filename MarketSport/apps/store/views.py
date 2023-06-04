@@ -19,10 +19,12 @@ def searhInMainPage(request):
 
 def categoryDetail(request, slug):
     cat = get_object_or_404(Category, slug=slug)
+    catName = Category.objects.get(slug = slug).title
     products = cat.product.all()
 
     context = {
-        "products" : products
+        "products" : products,
+        "categoryName":catName
     }
 
     return render(request, 'category_detail.html', context)

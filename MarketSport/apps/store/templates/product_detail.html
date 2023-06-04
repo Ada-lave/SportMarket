@@ -1,250 +1,250 @@
-{% extends 'base.html' %}
-{% load static %}
+    {% extends 'base.html' %}
+    {% load static %}
 
-{% block styles %}
-<link rel="stylesheet" href="{% static 'css/moreAboutProduct/style.css' %}"> 
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/moreAboutProduct/style.css' %}"> 
 
-<!-- Если есть необходимость подключить другие стили подключай тут, а так файлик css в котором можно писать лежит выше-->
+    <!-- Если есть необходимость подключить другие стили подключай тут, а так файлик css в котором можно писать лежит выше-->
 
-{% endblock %}
-
-
-{% block content %}
-<!-- Тут пиши код связанный с отображение товаров, то есть сам html-->
-
-<div class="MainAbout">
-
-    <div class="HistoryLink">
-
-        <a href="#" class="CategoryLink">Главная </a>
-
-        <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
-
-        <a href="#" class="CategoryLink">Категория</a>
-
-        <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
-
-        <a href="#" class="CategoryLink">Товар</a>
-
-    </div>
+    {% endblock %}
 
 
+    {% block content %}
+    <!-- Тут пиши код связанный с отображение товаров, то есть сам html-->
 
-    <div class="Product">
+    <div class="MainAbout">
 
+        <div class="HistoryLink">
 
-        <div class="SliderList">
+            <a href="#" class="CategoryLink">Главная </a>
 
+            <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
-            <div class="SliderListItem">
-                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="SliderImg">
-                <div class="Line hidden"></div>
-            </div>
+            <a href="#" class="CategoryLink">Категория</a>
 
-            <div class="SliderListItem">
-                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide2.jpg' %}" alt="" class="SliderImg">
-                <div class="Line hidden"></div>
-            </div>
+            <img src="{% static 'imgs/moreAboutProduct/arrow.png' %}" alt="" class="IconHistory">
 
-            <div class="SliderListItem">
-                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide3.jpg' %}" alt="" class="SliderImg">
-                <div class="Line hidden"></div>
-            </div>
-
-            <div class="SliderListItem">
-                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide4.jpg' %}" alt="" class="SliderImg">
-                <div class="Line hidden"></div>
-            </div>
+            <a href="#" class="CategoryLink">Товар</a>
 
         </div>
 
 
-        <div class="MainImgWrapper">
 
-            <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="MainImg">
-
-        </div>
-    
+        <div class="Product">
 
 
-
-        <div class="ProductInformation">
-            <h1 class="ProductHeading">Reebok Energylux 2.0</h1>
-            <a class="ProductCategoryLink" href="#"><h2 class="ProductCategory">Кроссовки</h2></a>
-            <p class="ProductPrice">₽ 5400</p>
-
-            <p class="ColorListHeading">Цвет</p>
-
-            <div class="ColorList">
-
-                <a href="#"><div class="ColorProduct"></div></a>
-                <a href="#"><div class="ColorProduct"></div></a>
-                <a href="#"><div class="ColorProduct"></div></a>
-
-            </div>
+            <div class="SliderList">
 
 
-            <p class="SizeListHeading">Размер</p>
-
-            <div class="SizeList">
-
-                <div class="SizeItem ">
-                    <div class="SizeText">39</div>
+                <div class="SliderListItem">
+                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="SliderImg">
+                    <div class="Line hidden"></div>
                 </div>
 
-                <div class="SizeItem">
-                    <div class="SizeText">39</div>
+                <div class="SliderListItem">
+                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide2.jpg' %}" alt="" class="SliderImg">
+                    <div class="Line hidden"></div>
                 </div>
 
-                <div class="SizeItem">
-                    <div class="SizeText">39</div>
+                <div class="SliderListItem">
+                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide3.jpg' %}" alt="" class="SliderImg">
+                    <div class="Line hidden"></div>
+                </div>
+
+                <div class="SliderListItem">
+                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide4.jpg' %}" alt="" class="SliderImg">
+                    <div class="Line hidden"></div>
                 </div>
 
             </div>
 
 
+            <div class="MainImgWrapper">
 
-            <button class="AddCartBtn">Добавить в корзину</button>
+                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="MainImg">
+
+            </div>
+        
+
+
+
+            <div class="ProductInformation">
+                <h1 class="ProductHeading">Reebok Energylux 2.0</h1>
+                <a class="ProductCategoryLink" href="#"><h2 class="ProductCategory">Кроссовки</h2></a>
+                <p class="ProductPrice">₽ 5400</p>
+
+                <p class="ColorListHeading">Цвет</p>
+
+                <div class="ColorList">
+
+                    <a href="#"><div class="ColorProduct"></div></a>
+                    <a href="#"><div class="ColorProduct"></div></a>
+                    <a href="#"><div class="ColorProduct"></div></a>
+
+                </div>
+
+
+                <p class="SizeListHeading">Размер</p>
+
+                <div class="SizeList">
+
+                    <div class="SizeItem ">
+                        <div class="SizeText">39</div>
+                    </div>
+
+                    <div class="SizeItem">
+                        <div class="SizeText">39</div>
+                    </div>
+
+                    <div class="SizeItem">
+                        <div class="SizeText">39</div>
+                    </div>
+
+                </div>
+
+
+
+                <button class="AddCartBtn">Добавить в корзину</button>
+
+            </div>
+
+
+    
+        
+        </div>
+
+        <div class="ProductDescription">
+
+            <div class="ProductDescriptionMain">
+                <div class="line"></div>
+                <div class="productDescriptionHeader">
+                    Описание
+                </div>
+
+                <div class="Descripton">
+
+                    <p>Reebok Energylux 2.0 - это удобные и стильные кроссовки для активного образа жизни.
+                        Они обеспечивают отличную амортизацию и поддержку стопы благодаря промежуточной подошве из пеноматериала EVA. </p>
+
+                    <p> Верх выполнен из дышащей сетки, что обеспечивает оптимальную вентиляцию и комфорт в течение всего дня. 
+                        Кроссовки оснащены прочной резиновой подошвой с хорошей сцепляемостью, что обеспечивает надежное сцепление с поверхностью и повышает устойчивость при движении.</p>    
+
+                    <p>Reebok Energylux 2.0 - это идеальный выбор для занятий спортом или повседневной носки.</p>
+
+                    
+                </div>
+
+
+            </div>
+        
+
+
+            <div class="Specifications">
+                <h2 class="SpecificationsHeader">Характеристики</h2>
+            
+
+                <div class="SpecificationList">
+
+                                    
+                            <div class="SpecificationsItem">
+                                    <p class="NameSpecifications">Материал изделия</p>
+                                    <div class="line"></div>
+
+                                    <p class="ValueSpecifications">
+                                        Резина
+                                    </p>
+                                
+                    
+                            </div>
+                        
+                                    
+                            <div class="SpecificationsItem">
+                                    <p class="NameSpecifications">Вид спорта</p>
+                                    <div class="line"></div>
+
+                                    <p class="ValueSpecifications">
+                                        Бег
+                                    </p>
+                                
+                    
+                            </div>
+                        
+                                    
+                            <div class="SpecificationsItem">
+                                    <p class="NameSpecifications">Сезон</p>
+                                    <div class="line"></div>
+
+                                    <p class="ValueSpecifications">
+                                        На любой
+                                    </p>
+                                
+                    
+                            </div>
+                        
+                                    
+                            <div class="SpecificationsItem">
+                                    <p class="NameSpecifications">Пол</p>
+                                    <div class="line"></div>
+
+                                    <p class="ValueSpecifications">
+                                        Женский
+                                    </p>
+                                
+                    
+                            </div>
+                        
+                                    
+                            <div class="SpecificationsItem">
+                                    <p class="NameSpecifications">Бренд одежды</p>
+                                    <div class="line"></div>
+
+                                    <p class="ValueSpecifications">
+                                        Бренд одежды
+                                    </p>
+                                
+                    
+                            </div>
+                        
+
+
+
+                </div>
+        
+                <div class="structure">
+
+                    <p class="StructureHeader">
+
+                        Материал:  Вверх: кожа, подкладка: текстиль, подошва: резина
+
+                    </p>
+
+
+                </div>
+
 
         </div>
 
 
-   
-    
+
+
+
+        
     </div>
 
-    <div class="ProductDescription">
-
-        <div class="ProductDescriptionMain">
-
-            <div class="productDescriptionHeader">
-                Описание
-            </div>
-
-            <div class="Descripton">
-
-                <p>Reebok Energylux 2.0 - это удобные и стильные кроссовки для активного образа жизни.
-                    Они обеспечивают отличную амортизацию и поддержку стопы благодаря промежуточной подошве из пеноматериала EVA. </p>
-
-                <p> Верх выполнен из дышащей сетки, что обеспечивает оптимальную вентиляцию и комфорт в течение всего дня. 
-                    Кроссовки оснащены прочной резиновой подошвой с хорошей сцепляемостью, что обеспечивает надежное сцепление с поверхностью и повышает устойчивость при движении.</p>    
-
-                <p>Reebok Energylux 2.0 - это идеальный выбор для занятий спортом или повседневной носки.</p>
-
-                
-            </div>
-
-
-        </div>
-       
-
-
-        <div class="Specifications">
-            <h2 class="SpecificationsHeader">Характеристики</h2>
-          
-
-            <div class="SpecificationList">
-
-                                  
-                        <div class="SpecificationsItem">
-                                <p class="NameSpecifications">Материал изделия</p>
-                                <div class="line"></div>
-
-                                <p class="ValueSpecifications">
-                                    Резина
-                                </p>
-                            
-                
-                        </div>
-                    
-                                  
-                        <div class="SpecificationsItem">
-                                <p class="NameSpecifications">Вид спорта</p>
-                                <div class="line"></div>
-
-                                <p class="ValueSpecifications">
-                                    Бег
-                                </p>
-                            
-                
-                        </div>
-                    
-                                  
-                        <div class="SpecificationsItem">
-                                <p class="NameSpecifications">Сезон</p>
-                                <div class="line"></div>
-
-                                <p class="ValueSpecifications">
-                                    На любой
-                                </p>
-                            
-                
-                        </div>
-                    
-                                  
-                        <div class="SpecificationsItem">
-                                <p class="NameSpecifications">Пол</p>
-                                <div class="line"></div>
-
-                                <p class="ValueSpecifications">
-                                    Женский
-                                </p>
-                            
-                
-                        </div>
-                    
-                                  
-                        <div class="SpecificationsItem">
-                                <p class="NameSpecifications">Бренд одежды</p>
-                                <div class="line"></div>
-
-                                <p class="ValueSpecifications">
-                                    Бренд одежды
-                                </p>
-                            
-                
-                        </div>
-                    
-
-
-
-            </div>
-    
-            <div class="structure">
-
-                <p class="StructureHeader">
-
-                    Материал:  Вверх: кожа, подкладка: текстиль, подошва: резина
-
-                </p>
-
-
-            </div>
-
-
-    </div>
+    </div>  
 
 
 
 
-
-      
-  </div>
-
-</div>  
+    {% endblock %}
 
 
+    {% block scripts %}
+        <script src="{% static 'js/About/Border.js' %}"></script>
+        <script src="{% static 'js/About/Slider.js' %}"></script>
+        <script src="{% static 'js/navbar/header.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
-{% endblock %}
-
-
-{% block scripts %}
-    <script src="{% static 'js/About/Border.js' %}"></script>
-    <script src="{% static 'js/About/Slider.js' %}"></script>
-    <script src="{% static 'js/navbar/header.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-{% endblock %}
+    {% endblock %}
