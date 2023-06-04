@@ -142,3 +142,157 @@ body{
     line-height: 29px;
     color: #979797;
 }
+
+.SizeItem{
+    width: 36px;
+    height: 34px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 11px;
+   
+
+}
+
+
+.SizeText{
+    margin-top: 8px;
+}
+
+.SizeList{
+    display: flex;
+    
+}
+
+
+.AddCartBtn{
+    background-color: #EBFF03;
+    margin-top: 80px;
+    width: 200px;
+    height: 52px;
+    border: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    
+}
+
+
+.productDescriptionHeader{
+    margin-top: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    
+    color: #000000;
+    
+}
+
+.Descripton{
+    margin-top: 30px;
+    width: 700px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #000000;
+    min-height: 550px;   
+}
+
+
+.ProductDescription{
+    display: flex;
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 39px;
+
+
+}
+
+.SpecificationsHeader{
+    font-weight: 700;
+    font-size: 32;
+}
+
+
+
+.Specifications{
+    margin-left: 57px;
+}
+
+.SpecificationsItem{
+    display: flex;
+    
+}
+
+
+.NameSpecifications{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+   color: #58D0D8;
+
+}
+
+.line{
+    width: 120px;
+    height: 1px;
+    background-color: #E4E4E4;
+    margin-top: 10px;
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+
+.ValueSpecifications{
+    margin-top: 3px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #9B9B9B;
+
+}
+
+
+.SpecificationList{
+
+    margin-top: 20px;
+
+}
+
+
+.StructureHeader{
+        
+
+    
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+
+color: #AFAFAF;
+
+
+
+}
