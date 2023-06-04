@@ -71,8 +71,12 @@ class Product(models.Model):
         file_name = self.category.title
         self.thumbnail = self.resizeImage(self.image)
 
-        self.image.name = file_name + "/" + self.title + ".png"
-        self.thumbnail.name = file_name + "/" + self.title + "Thumb" + ".png"
+        
+        if self.image.name:
+            print('image ready')
+        else:
+            self.image.name = file_name + "/" + self.title + ".png"
+            self.thumbnail.name = file_name + "/" +  "Thumb" + ".png"
 
         super(Product, self).save(*args, **kwargs)
 

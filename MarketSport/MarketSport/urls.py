@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-
+from apps.cart.api import apiAddToCart
+from apps.store.views import *
 from django.conf import settings
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('',include('apps.store.urls')),
     path('', include('apps.registrations.urls')),
     path('api/', include('apps.cart.urls')),
+    path('test', test)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -28,10 +28,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# Cart
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
+
+
+# Email sender
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mega.kefi36@gmail.com'
+EMAIL_HOST_PASSWORD = 'ypondlgixhwtyowd'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.email.backends.smtp.EmailBackend'
 # Application definition
 
 INSTALLED_APPS = [
