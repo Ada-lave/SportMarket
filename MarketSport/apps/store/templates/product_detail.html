@@ -30,7 +30,7 @@
 
 
 
-    <div class="Product">
+    <div class="Product" id="product">
 
 
         <div class="SliderList">
@@ -90,7 +90,7 @@
 
 
 
-            <button class="AddCartBtn">Добавить в корзину</button>
+            <button class="AddCartBtn" v-on:click="addToCart({{ product.id }})">Добавить в корзину</button>
 
         </div>
 
@@ -223,6 +223,47 @@
     <script src="{% static 'js/navbar/header.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUV    F0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Vue -->
+
+    <script>
+        var productapp = new Vue({
+            el: '#product',
+            store: store,
+            data(){
+                return {
+
+                }
+            },
+
+            mounted() {
+                console.log('Vue ready to work')
+            },
+
+            methods: {
+                addToCart(product_id){
+                    var data = {'id': product_id, 'update':false, 'quantity': 1}
+                    
+                    fetch('/api/add', {
+                        method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                    .then((responce) => {
+                        console.log(responce)
+                    })
+
+                    .catch(function error(){
+                        console.log('Error to Add to Cart')
+                    }) 
+                }
+            }
+        })
+    </script>
 
 
 {% endblock %}
