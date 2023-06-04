@@ -10,9 +10,9 @@ body{
     flex-direction: column;
 }
 
-.Main{
-    flex-grow: 1;
-    
+.MainAbout{
+    width: 1180px;
+    margin: 0 auto;
 }
 
 
@@ -51,7 +51,7 @@ body{
 }
 
 
-.MainImg{
+.MainImgWrapper{
     margin-left: 80px;
     width: 499px;
     height: 588px;
@@ -144,6 +144,7 @@ body{
 }
 
 .SizeItem{
+    cursor: pointer;
     width: 36px;
     height: 34px;
     background: #FFFFFF;
@@ -157,9 +158,14 @@ body{
     display: flex;
     justify-content: center;
     margin-right: 11px;
-   
 
 }
+
+.Border{
+    border-bottom: 2px solid blue;
+}
+
+
 
 
 .SizeText{
@@ -184,8 +190,21 @@ body{
     font-size: 16px;
     line-height: 20px;
     text-align: center;
+    transition:  0.5s;
     
 }
+
+
+
+.AddCartBtn:hover {
+    background-color: #8F00FF;
+    color: white;
+}
+
+
+
+
+
 
 
 .productDescriptionHeader{
@@ -295,4 +314,25 @@ color: #AFAFAF;
 
 
 
+}
+
+
+.SliderImg{
+    width: 100px;
+    height: 126px;
+}
+
+.SliderListItem{
+    cursor: pointer;
+}
+
+.Line{
+    height: 3px;
+    width: 100px;
+    background-color: #0019FF;
+}
+
+.MainImg{
+    width: 499px;
+    height: 606px;
 }

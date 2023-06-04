@@ -113,39 +113,43 @@
 
                     
 
-                    <div class="MainCardItem">
-
-                        <a href="#">
-                            <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
-                        </a>
-
+           
+                        <div class="MainCardItem">
+    
+                            <a href="#">
+                                <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                            </a>
+    
+                            
+                        </div>
+    
+                        <div class="discharge1">
+    
+                            <p>Новинка</p>
+    
+                        </div>
+    
+                        <div class="ColorValue">
+    
+                            <p class="ColorValueText">2 цвета</p>
+    
+                        </div>
                         
-                    </div>
+    
+                        <div class="TextCard">
+    
+                            <p class="NameCard">{{ product.title }}</p>
+    
+                            <p class="PriceCard">₽ {{ product.price }}</p>
+    
+                            <p class="NewPriceCard hidden">₽ 2400.00</p>
+    
+                        </div>
+    
+                      </div>
+    
 
-                    <div class="discharge1">
 
-                        <p>Новинка</p>
-
-                    </div>
-
-                    <div class="ColorValue">
-
-                        <p class="ColorValueText">2 цвета</p>
-
-                    </div>
-                    
-
-                    <div class="TextCard">
-
-                        <p class="NameCard">{{ product.title }}</p>
-
-                        <p class="PriceCard">₽ {{ product.price }}</p>
-
-                        <p class="NewPriceCard hidden">₽ 2400.00</p>
-
-                    </div>
-
-                  </div>
                   {% endfor %}
                   
 
