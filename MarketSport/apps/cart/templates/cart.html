@@ -8,9 +8,9 @@
 
 {% block content %}
 
-    <main>
+    <main id="cart">
 
-        <div class="Cart" id="cart">
+        <div class="Cart" >
 
             <div class="CartHeader">Корзина товаров</div>
 
@@ -108,20 +108,20 @@
             <form class="FormList" action="">
 
                 <p class="FormListItem">Область</p>
-                <input type="text" class="place">
+                <input type="text" class="place" v-model="region">
                 <p class="FormListItem" >Город</p>
-                <input type="text" class="place">
+                <input type="text" class="place" v-model="city">
                 <p class="FormListItem" >Улица</p>
-                <input type="text" class="place">
+                <input type="text" class="place" v-model="street">
                 <p class="FormListItem" >Почтовый индекс</p>
-                <input type="text" class="place">
+                <input type="text" class="place" v-model="index">
 
             </form>
 
             
 
             <div class="center">
-                <button class="PlaceBtn">Оформить заказ</button>
+                <button class="PlaceBtn" v-on:click="createOrder()" type="submit">Оформить заказ</button>
             </div>
         </div>
         
@@ -145,6 +145,10 @@
         store: store,
         data() {
             return {
+                region: "",
+                city: "",
+                street: "",
+                index: "",
                 products: {{ productstr|safe }}
             }
         },
@@ -154,6 +158,29 @@
         },
 
         methods:{
+
+            createOrder(){
+                console.log('order')
+                let data = {
+                    'address': this.region + " " + this.city + " " + this.street + " " + this.index
+                }
+
+                fetch('/api/order',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+
+                .then((response) => {
+                    console.log(response)
+                    
+                    
+                })
+            },
 
             deleteFromCart(prod_id){
                 var data = {'id': parseInt(prod_id)}
