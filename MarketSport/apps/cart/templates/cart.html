@@ -10,7 +10,7 @@
 
     <main>
 
-        <div class="Cart">
+        <div class="Cart" id="cart">
 
             <div class="CartHeader">Корзина товаров</div>
 
@@ -18,11 +18,42 @@
                 <div class="line"></div>
                 <div class="lineV"></div>
 
+            <div>
+                
+            </div>
 
-                <div class="CartList">
+            <div class="CartList">
 
 
-                    <div class="Card">
+                <div class="Card">
+
+
+
+
+                            <div class="CardimgBlock">
+
+                                <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
+
+                            </div>
+
+                            <div class="Information">
+
+                                <div class="CardHeadder">Reebok Energylux 2.0</div>
+
+                                <div class="CardSize">Размер 39</div>
+
+                               <div class="CardColorMain">
+                                <span>Цвет</span>
+                                <div class="CardColor"></div>
+
+                               </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="CardTool">
 
 
 
@@ -80,6 +111,17 @@
 
                 </div>
 
+                 
+
+
+                </div>
+
+
+
+            </div>
+
+                
+
                 
                 
             
@@ -129,5 +171,43 @@
 
 {% block scripts %}
     <script src="{% static 'js/form/valid.js' %}"> </script>
+
+<script>
+
+    var app = new Vue({
+        el: '#cart',
+        delimiters: ['[[',']]'],
+        store: store,
+        data() {
+            return {
+                products: {{ productstr|safe }}
+            }
+        },
+
+        mounted(){
+            console.log("work")
+        }
+    })
+
+</script>
+
+<script>
+
+    var app = new Vue({
+        el: '#cart',
+        delimiters: ['[[',']]'],
+        store: store,
+        data() {
+            return {
+                products: {{ productstr|safe }}
+            }
+        },
+
+        mounted(){
+            console.log("work")
+        }
+    })
+
+</script>
 
 {% endblock %}
