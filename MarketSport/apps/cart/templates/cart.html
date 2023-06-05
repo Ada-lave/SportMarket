@@ -22,31 +22,31 @@
                 
             </div>
 
-            <div class="CartList">
+            <div class="CartList" >
 
 
-                <div class="Card">
+                <div class="Card" v-for="product in products">
 
-
+                   
 
                     <div class="CardMain">
                         <a href="#" class="CardLink">
 
                             <div class="CardimgBlock">
 
-                                <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
+                                <img class="imgC" src= '' alt="">
 
                             </div>
 
                             <div class="Information">
 
-                                <div class="CardHeadder">Reebok Energylux 2.0</div>
+                                <div class="CardHeadder">[[ product.title ]]</div>
 
-                                <div class="CardSize">Размер 39</div>
+                                <div class="CardSize">[[ product.size ]]</div>
 
                                <div class="CardColorMain">
                                 <span>Цвет</span>
-                                <div class="CardColor"></div>
+                                <div class="CardColor" style="background-color: [[product.color]];"></div>
 
                                </div>
 
@@ -54,25 +54,26 @@
 
                         </a>
                     </div>
+                    
 
                     <div class="CardTool">
 
 
                         <div class="ProductValue">
 
-                            <div class="AddProduct ValueBackgroundProduct">+</div>
-                            <span>1 шт</span>
-                            <div class="RemoveProduct ValueBackgroundProduct">-</div>
+                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity([[ product.id ]])">+</div>
+                            <span>[[ product.quantity ]] шт</span>
+                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity([[ product.id ]])">-</div>
 
 
                         </div>
 
-                        <p class="ProductPrice"> ₽ 5400</p>
+                        <p class="ProductPrice"> ₽ [[ product.price ]]</p>
 
                     </div>
 
 
-                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
+                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}"  v-on:click="deleteFromCart([[ product.id ]])" alt=""></div>
 
                 </div>
 
@@ -135,6 +136,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'js/navbar/header.js' %}"></script>
 
 <script>
 
@@ -150,9 +152,97 @@
 
         mounted(){
             console.log("work")
+        },
+
+        methods:{
+
+            deleteFromCart(prod_id){
+                var data = {'id': parseInt(prod_id)}
+
+                fetch('/api/del',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    this.products = this.products.filter(product => product.id !== prod_id)
+                })
+            },
+            
+
+            incrementQuantity(prod_id, qua) {
+                var data = {'id':parseInt(prod_id)}
+
+
+                fetch('/api/inc',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    for (let i = 0; i<this.products.length; i++){
+                        let product = this.products[i]
+                        
+
+                        if (this.products[i].id == prod_id){
+                            console.log('inc')
+                            this.products[i].quantity++
+                        }
+                    }
+                })
+            },
+
+            decrementQuantity(prod_id){
+                let data = {'id':parseInt(prod_id)}
+                fetch('/api/dec',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    for (let i = 0; i<this.products.length; i++){
+                        let product = this.products[i]
+                        
+
+                        if (this.products[i].id == prod_id){
+
+                            this.products[i].quantity--
+                        }
+                    }
+                })
+            }
         }
     })
 
+</script>
+
+<script>
+    imgs = document.getElementsByClassName('imgC')
+    urls = "{{productImgs|escapejs}}"
+    urls_m = urls.split("")
+    delete urls_m[0]
+    delete urls_m[1]
+    delete urls_m[urls_m.length-1]
+    delete urls_m[urls_m.length-2]
+    str = urls_m.join('')
+    urls_normalise = str.split("', '")
+
+    for (let i = 0; i< urls_normalise.length; i++)
+    {
+        imgs[i].src = urls_normalise[i]
+    }
 </script>
 
 {% endblock %}

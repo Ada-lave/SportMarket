@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from apps.cart.cart import Cart
 
 from apps.store.models import Product
-
+from django.shortcuts import  redirect
 def test(request):
     return JsonResponse({"resp":'resl'})
 
@@ -27,6 +27,19 @@ def apiAddToCart(request):
         return JsonResponse({"AddtoCart": True})
     else:
         return JsonResponse({"status": 'bad'})
+    
+    
+    
+def apiRemoveFromCart(request):
+    print('del')
+    data = json.loads(request.body)
+    id = data['id']
+
+    cart = Cart(request)
+
+    cart.remove(id)
+
+    return redirect('cart')
 
 
 def apiIncrementCart(request):
