@@ -21,50 +21,62 @@
 
                 <div class="CartList">
 
-                    <div class="CardMain">
-                        <a href="#" class="CardLink">
 
-                            <div class="CardimgBlock">
-                    
-                                <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
-
-                            </div>
-
-                            <div class="Information">
-
-                                <div class="CardHeadder">Reebok Energylux 2.0</div>
-
-                                <div class="CardSize">Размер 39</div>
-
-                               <div class="CardColorMain">
-                                <span>Цвет</span>
-                                <div class="CardColor"></div>
-
-                               </div>
-
-                            </div>
-
-                        </a>
-                    </div>
-
-                    <div class="CardTool">
+                    <div class="Card">
 
 
-                        <div class="ProductValue">
 
-                            <div class="AddProduct ValueBackgroundProduct">+</div>
-                            <span>1 шт</span>
-                            <div class="RemoveProduct ValueBackgroundProduct">-</div>
-
-
+                        <div class="CardMain">
+                            <a href="#" class="CardLink">
+    
+                                <div class="CardimgBlock">
+                        
+                                    <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
+    
+                                </div>
+    
+                                <div class="Information">
+    
+                                    <div class="CardHeadder">Reebok Energylux 2.0</div>
+    
+                                    <div class="CardSize">Размер 39</div>
+    
+                                   <div class="CardColorMain">
+                                    <span>Цвет</span>
+                                    <div class="CardColor"></div>
+    
+                                   </div>
+    
+                                </div>
+    
+                            </a>
                         </div>
+    
+                        <div class="CardTool">
+    
+    
+                            <div class="ProductValue">
+    
+                                <div class="AddProduct ValueBackgroundProduct">+</div>
+                                <span>1 шт</span>
+                                <div class="RemoveProduct ValueBackgroundProduct">-</div>
+    
+    
+                            </div>
+    
+                            <p class="ProductPrice"> ₽ 5400</p>
+    
+                        </div>
+    
+    
+                        <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
+    
+                    </div>
 
-                        <p class="ProductPrice"> ₽ 5400</p>
 
                     </div>
 
 
-                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
 
                 </div>
 
@@ -116,5 +128,6 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="{% static 'js/form/valid.js' %}"> </script>
 
 {% endblock %}
