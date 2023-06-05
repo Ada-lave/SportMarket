@@ -1,12 +1,117 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block style %}
-
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart/cart.css' %}">
 {% endblock %}
 
 
 {% block content %}
+
+    <main>
+
+        <div class="Cart">
+
+            <div class="CartHeader">Корзина товаров</div>
+
+                
+                <div class="line"></div>
+                <div class="lineV"></div>
+
+
+                <div class="CartList">
+
+                    <div class="CardMain">
+                        <a href="#" class="CardLink">
+
+                            <div class="CardimgBlock">
+                    
+                                <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
+
+                            </div>
+
+                            <div class="Information">
+
+                                <div class="CardHeadder">Reebok Energylux 2.0</div>
+
+                                <div class="CardSize">Размер 39</div>
+
+                               <div class="CardColorMain">
+                                <span>Цвет</span>
+                                <div class="CardColor"></div>
+
+                               </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="CardTool">
+
+
+                        <div class="ProductValue">
+
+                            <div class="AddProduct ValueBackgroundProduct">+</div>
+                            <span>1 шт</span>
+                            <div class="RemoveProduct ValueBackgroundProduct">-</div>
+
+
+                        </div>
+
+                        <p class="ProductPrice"> ₽ 5400</p>
+
+                    </div>
+
+
+                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
+
+                </div>
+
+                
+                
+            
+            
+
+
+
+        </div>
+
+        <div class="PlaceOrder">
+            <p class="Finally">Товары на 27 000 ₽</p>
+            <p class="ValueProduct">Товары,шт</p>
+            <p class="ValueProduct">Максим</p>
+            <p class="ValueProduct">Турыгин</p>
+            <p class="ValueProduct">sheva@gmail.com</p>
+            <p class="ValueProduct">7 (932) 415 97- 65 </p>
+            <p class="Date">05.06.2023</p>
+
+            <form class="FormList" action="">
+
+                <p class="FormListItem">Область</p>
+                <input type="text" class="place">
+                <p class="FormListItem" >Город</p>
+                <input type="text" class="place">
+                <p class="FormListItem" >Улица</p>
+                <input type="text" class="place">
+                <p class="FormListItem" >Почтовый индекс</p>
+                <input type="text" class="place">
+
+            </form>
+
+            <p class="Date">05.06.2023</p>
+
+            <div class="center">
+                <button class="PlaceBtn">Оформить заказ</button>
+            </div>
+        </div>
+        
+
+        
+    </main>
+
+
+
 
 {% endblock %}
 

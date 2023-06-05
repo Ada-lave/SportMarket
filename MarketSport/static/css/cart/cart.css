@@ -1,0 +1,320 @@
+body,html{
+    
+    height: 100%;
+    
+    }
+
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+}    
+    
+section{
+        flex-grow: 1;
+        min-height: 860px;
+        
+    }
+
+main{
+    display: flex;
+    width: 1180px;
+    margin: auto
+}
+
+
+
+
+.CartHeader{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    color: #000000;
+}
+
+
+
+.CardList{
+
+}
+
+
+.lines{
+    display: flex;
+}
+
+
+.line{
+    border-radius: 30;
+    margin-top: 24px;
+    width: 645px;
+    height: 1px;
+    background-color: #EAEAEA;
+}
+
+
+.lineV{
+    border-radius: 30;
+    margin-left: 673px;
+    margin-top: 10px;
+    width: 1px;
+    height: 695px;
+    background-color: #EAEAEA;
+}
+
+
+.CartList{
+    margin-top: -663px;
+    display: flex;
+   
+}
+
+
+.CardMain{
+    display: flex;
+}
+
+.Cart{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.CardimgBlock{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    width: 155px;
+    height: 178px;
+}
+
+.CardLink{
+    display: flex;
+    text-decoration: none;
+}
+
+
+.CardHeadder{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+    
+}
+
+.CardSize{
+    margin-top: 4px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #777777;
+}
+
+
+.CardColor{
+    margin-left: 5px;
+    margin-top: 3px;
+    border-radius: 50%;
+    background-color: #0029FF;;
+    width: 15px;
+    height: 15px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+}
+
+.CardColorMain{
+    margin-top: 10px;
+    display: flex;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+
+    color: #777777;
+
+}
+
+
+.Information{
+    margin-left: 14px;
+    margin-top: 10px;
+}
+
+
+
+.ValueBackgroundProduct{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #F9F9F9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+
+.ProductValue{
+    margin-top: 10px;
+    margin-left: 28px;
+    display: flex;
+}
+
+
+.ProductValue span{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.CardTool{
+    display: flex;
+}
+
+
+.ProductPrice{
+    margin-left: 28px;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: #000000;
+    
+
+}
+
+.RemoveCard{
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-left: 12px;
+    margin-right: 22px;
+}
+
+.RemoveCard:hover{
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+
+
+
+.PlaceOrder{
+    margin-left: 80px;
+    margin-top: 50px;
+    min-width: 339px;
+    min-height: 594px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.Finally{
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #000000;
+
+}
+
+.ValueProduct{
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #868686;
+
+}
+
+
+.Date{
+    
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #868686;
+
+
+}
+
+.PlaceBtn{
+    margin-left: 30px;
+    background-color: #E6FF4F;
+    color:000000;
+    border: none;
+    width: 252px;
+    height: 40px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    transition: 0.5s;
+
+}
+
+
+.PlaceBtn:hover{
+    background-color: #8F00FF;
+    color: white;
+    transition: 0.5s;}
+
+
+
+.FormList{
+    margin-left: 30px;
+}
+
+.FormListItem{
+    margin-bottom: -2px;
+    margin-top: 5px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #989898;
+
+}
+
+
+.FormList input{
+    transition: 0.3s;
+    width: 170px;
+    height: 20px;
+    border: 2px solid #EAEAEA;
+    margin-bottom: 16px;
+}
+
+.CardimgBlock img{
+    transition: 0.3s;
+    border-radius: 16px;
+    width: 155px;
+    height: 178px;
+}
+
+
+
+.FormList input:focus{
+    border: 2px solid #CDCCCC;
+    transition: 3s;
+}
