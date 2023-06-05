@@ -10,7 +10,7 @@
 
     <main>
 
-        <div class="Cart">
+        <div class="Cart" id="cart">
 
             <div class="CartHeader">Корзина товаров</div>
 
@@ -18,14 +18,22 @@
                 <div class="line"></div>
                 <div class="lineV"></div>
 
+            <div>
+                
+            </div>
 
-                <div class="CartList">
+            <div class="CartList">
+
+
+                <div class="Card">
+
+
 
                     <div class="CardMain">
                         <a href="#" class="CardLink">
 
                             <div class="CardimgBlock">
-                    
+
                                 <img src="{% static 'imgs/catalog/tolstovka.png' %}" alt="">
 
                             </div>
@@ -67,6 +75,17 @@
                     <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
 
                 </div>
+
+                 
+
+
+                </div>
+
+
+
+            </div>
+
+                
 
                 
                 
@@ -116,5 +135,24 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script>
+
+    var app = new Vue({
+        el: '#cart',
+        delimiters: ['[[',']]'],
+        store: store,
+        data() {
+            return {
+                products: {{ productstr|safe }}
+            }
+        },
+
+        mounted(){
+            console.log("work")
+        }
+    })
+
+</script>
 
 {% endblock %}

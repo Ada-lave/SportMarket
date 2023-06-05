@@ -34,12 +34,13 @@ class Cart(object):
         id = str(product.id)
         title = product.title
         price = product.price
+        img = product.image.url
         size = product.size
         color = product.color
 
         if id not in self.cart:
             self.cart[id] = {'title':title,'id': id,'quantity':0,\
-                            'price':price, 'size': size, 'color': color}
+                            'price':price, 'size': size, 'color': color, 'img':img}
         
         if update_q==False:
             self.cart[id]['quantity'] = 1

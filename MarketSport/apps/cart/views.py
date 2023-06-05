@@ -6,7 +6,9 @@ def showCart(request):
     productstr = []
     for item in cart:
         product = item['product']
-        b = {'id':product.id, 'title':product.title, 'price':product.price,'quantity':item['quantity']}
+        
+        b = {'id':product.id, 'title':product.title, 'price':product.price,'quantity':item['quantity'],\
+              'color':item['color'], 'size': item['size'], 'img':item['img']}
 
         productstr.append(b)
         print(productstr)
