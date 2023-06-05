@@ -25,7 +25,7 @@
             <div class="CartList">
 
 
-                <div class="Card">
+                <div class="Card"> //
 
 
 
@@ -102,7 +102,7 @@
     
                         <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}" alt=""></div>
     
-                    </div>
+                    </div> //конец карточки
 
 
                     </div>
@@ -117,9 +117,7 @@
                 </div>
 
 
-
-            </div>
-
+          
                 
 
                 
@@ -140,24 +138,41 @@
             <p class="ValueProduct">7 (932) 415 97- 65 </p>
             <p class="Date">05.06.2023</p>
 
-            <form class="FormList" action="">
+            <form class="FormList" action="" id="add-form">
 
                 <p class="FormListItem">Область</p>
-                <input type="text" class="place">
+
+                <div class="inputBox">
+                    <input type="text" class="place">
+                </div>
+                
+                
                 <p class="FormListItem" >Город</p>
-                <input type="text" class="place">
+
+
+                <div class="inputBox">
+                    <input type="text" class="place">
+                </div>
+
                 <p class="FormListItem" >Улица</p>
-                <input type="text" class="place">
+
+                <div class="inputBox">
+                    <input type="text" class="place">
+                </div>
+                
                 <p class="FormListItem" >Почтовый индекс</p>
-                <input type="text" class="place">
+                <div class="inputBox">
+                    <input type="" onkeyup= "this.value = this.value.replace(/[^\d]/g,'');" class = "place">
+                </div>
 
-            </form>
+                <button class="PlaceBtn" type="submit">Отправить</button>
+            
+            </form> 
+           
 
-            <p class="Date">05.06.2023</p>
+            
 
-            <div class="center">
-                <button class="PlaceBtn">Оформить заказ</button>
-            </div>
+           
         </div>
         
 

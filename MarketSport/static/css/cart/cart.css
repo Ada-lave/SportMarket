@@ -261,7 +261,7 @@ main{
 }
 
 .PlaceBtn{
-    margin-left: 30px;
+    
     background-color: #E6FF4F;
     color:000000;
     border: none;
@@ -323,3 +323,8 @@ main{
     border: 2px solid #CDCCCC;
     transition: 3s;
 }
+
+input.error {
+    border: 1px solid red;
+  }
+  
