@@ -3,13 +3,70 @@
 
 
 {% block styles %}
-
+<link rel="stylesheet" href="{% static 'css/reg/form.css' %}">
 {% endblock %}
 
 {% block content %}
 
+<main>
+
+
+    <div class="reg">
+
+        
+    <form class="MainForm" id="add-form" action="">
+        
+        <div class="RegHeaderContainer">
+
+            <p class="RegHeader">Регистрация</p>
+
+        </div>
+
+
+        <p class="FromHeader">Ваше имя</p>
+        <input class="place FormReg" type="text">
+
+        <p class="FromHeader"> Ваша фамилия</p>
+        <input class="place FormReg" type="text">
+        
+        <p class="FromHeader">Номер телефона</p>
+        <input class="place FormReg" type="number">
+
+        <p class="FromHeader">Логин</p>
+        <input class="place FormReg" type="text">
+        
+        <p class="FromHeader">Электронная почта</p>
+        <input class="place FormReg" type="text">
+
+        <p class="FromHeader">Пароль</p>
+        <input class="place FormReg" type="text">
+        
+        <p class="FromHeader" >Подтвердите пароль</p>
+        <input class="place FormReg" type="text">
+        
+        <div class="btnContainer">
+            <button class="RegBtn" type="submit">Регистрация</button>
+        </div>
+        <div class="UserCondition">
+
+            <a class="UserConditionLink" href="#">Уже зарегестрированны?</a>
+
+        </div>
+
+    </form>
+
+    </div>
+
+
+</main>
+
+
+
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'js/navbar/header.js' %}"></script>
+<script src="{% static 'js/form/valid.js' %}"></script>
 
-{% endblock %}
+
+{% endblock %}.

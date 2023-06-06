@@ -36,6 +36,7 @@
   <title>Document</title>
 </head>
 <body>
+  
   <header>
     <div class="logo">
             <a href="{% url 'mainpage' %}" class="logoLink">
@@ -62,9 +63,9 @@
 
                 </li>
 
-                <li class="MenuItem"><a href="#">О нас</a></li>
+                <li class="MenuItem" id="WhoWe"><a href="{% url 'mainpage' %}#WhoWeLink">О нас</a></li>
 
-                <li class="MenuItem"><a href="#">Контакты</a></li>
+                <li class="MenuItem" id="Contats"><a href="#">Контакты</a></li>
                 
             </ul>
 
@@ -88,8 +89,9 @@
 </header>
   <section>  {% block content %}{% endblock %}</section>
 
-  <footer class="basement">
+  <footer class="basement" id="#basement">
         
+    <div id="#icor"></div>
 
     <div class="MainBasement">
       <div class="FooterLogoTextMain">
@@ -147,7 +149,6 @@
 
   
 </footer>
-  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
   <script>
