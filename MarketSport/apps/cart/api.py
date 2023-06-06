@@ -21,6 +21,8 @@ def apiOrderCreator(request):
     order.paid_amount = cart.totalCost()
     order.save()
 
+    cart.clear()
+
     return JsonResponse({'order create':True})
 
 def apiAddToCart(request):
