@@ -2,18 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from .models import Profile
-
+from django.contrib.auth.models import User
 from .forms  import UserRegistrationForm
 
-def update_user_data(user):
-    Profile.objects.update_or_create(user=user, defaults={'mod':user.profile.mobile})
+
 
 def registration(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.save()
+            print(form.cleaned_data['username'])
+            if form.cleaned_data['password1'] == form.cleaned_data['password2']:
+                user = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['first_name']\
+                    ,last_name=form.cleaned_data['last_name'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+            
+            
+                
+            
 
             profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'))
             profile.save()
