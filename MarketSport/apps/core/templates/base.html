@@ -77,7 +77,7 @@
                       <input class="SearchInput" type="text" name="q">
                     </form>
                     
-                    <li class="MenuUserItem"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></li>
+                    <li class="MenuUserItem"><a href="{% url 'cart' %}"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></a></li>
                     <li class="MenuUserItem"><img src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile"></li>
                 </ul>
 
@@ -147,6 +147,7 @@
 
   
 </footer>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
   <script>
@@ -155,15 +156,16 @@
 
       },
       mutation: {
-        increment(state, quantity){
+        increment(state, quantity) {
           state.NumItems += quantity
-        }
+      },
       }
 
 
     })
 
   </script>
+
   {% block scripts %}{% endblock %}
   
 

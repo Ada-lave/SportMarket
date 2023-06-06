@@ -1,15 +1,274 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block style %}
-
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart/cart.css' %}">
 {% endblock %}
 
 
 {% block content %}
 
+    <main id="cart">
+
+        <div class="Cart" >
+
+            <div class="CartHeader">Корзина товаров</div>
+
+                
+                <div class="line"></div>
+                <div class="lineV"></div>
+
+            <div>
+                
+            </div>
+
+            <div class="CartList" >
+
+
+                <div class="Card" v-for="product in products">
+
+                   
+
+                    <div class="CardMain">
+                        <a href="#" class="CardLink">
+
+                            <div class="CardimgBlock">
+
+                                <img class="imgC" src= '' alt="">
+
+                            </div>
+
+                            <div class="Information">
+
+                                <div class="CardHeadder">[[ product.title ]]</div>
+
+                                <div class="CardSize">[[ product.size ]]</div>
+
+                               <div class="CardColorMain">
+                                <span>Цвет</span>
+                                <div class="CardColor" style="background-color: [[product.color]];"></div>
+
+                               </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+                    
+
+                    <div class="CardTool">
+
+
+                        <div class="ProductValue">
+
+                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity([[ product.id ]])">+</div>
+                            <span>[[ product.quantity ]] шт</span>
+                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity([[ product.id ]])">-</div>
+
+
+                        </div>
+
+                        <p class="ProductPrice"> ₽ [[ product.price ]]</p>
+
+                    </div>
+
+
+                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}"  v-on:click="deleteFromCart([[ product.id ]])" alt=""></div>
+
+                </div>
+
+                 
+
+
+                </div>
+
+
+
+            </div>
+
+                
+
+                
+                
+            
+            
+
+
+
+        </div>
+
+        <div class="PlaceOrder">
+            <p class="Finally">Товары на {{ cart.totalCost }} ₽</p>
+            <p class="ValueProduct">Товары,шт</p>
+            <p class="ValueProduct">{{ user.get_full_name }}</p>
+            <p class="ValueProduct">{{ user.email }}</p>
+            <p class="ValueProduct">{{ user.profile.mobile }}</p>
+            <p class="Date">{{ cart.date }}</p>
+
+            <form class="FormList" action="">
+
+                <p class="FormListItem">Область</p>
+                <input type="text" class="place" v-model="region">
+                <p class="FormListItem" >Город</p>
+                <input type="text" class="place" v-model="city">
+                <p class="FormListItem" >Улица</p>
+                <input type="text" class="place" v-model="street">
+                <p class="FormListItem" >Почтовый индекс</p>
+                <input type="text" class="place" v-model="index">
+
+            </form>
+
+            
+
+            <div class="center">
+                <button class="PlaceBtn" v-on:click="createOrder()" type="submit">Оформить заказ</button>
+            </div>
+        </div>
+        
+
+        
+    </main>
+
+
+
+
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'js/navbar/header.js' %}"></script>
+
+<script>
+
+    var app = new Vue({
+        el: '#cart',
+        delimiters: ['[[',']]'],
+        store: store,
+        data() {
+            return {
+                region: "",
+                city: "",
+                street: "",
+                index: "",
+                products: {{ productstr|safe }}
+            }
+        },
+
+        mounted(){
+            console.log("work")
+        },
+
+        methods:{
+
+            createOrder(){
+                console.log('order')
+                let data = {
+                    'address': this.region + " " + this.city + " " + this.street + " " + this.index
+                }
+
+                fetch('/api/order',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+
+                .then((response) => {
+                    console.log(response)
+                    
+                    
+                })
+            },
+
+            deleteFromCart(prod_id){
+                var data = {'id': parseInt(prod_id)}
+
+                fetch('/api/del',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    this.products = this.products.filter(product => product.id !== prod_id)
+                })
+            },
+            
+
+            incrementQuantity(prod_id, qua) {
+                var data = {'id':parseInt(prod_id)}
+
+
+                fetch('/api/inc',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    for (let i = 0; i<this.products.length; i++){
+                        let product = this.products[i]
+                        
+
+                        if (this.products[i].id == prod_id){
+                            console.log('inc')
+                            this.products[i].quantity++
+                        }
+                    }
+                })
+            },
+
+            decrementQuantity(prod_id){
+                let data = {'id':parseInt(prod_id)}
+                fetch('/api/dec',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{
+                    for (let i = 0; i<this.products.length; i++){
+                        let product = this.products[i]
+                        
+
+                        if (this.products[i].id == prod_id){
+
+                            this.products[i].quantity--
+                        }
+                    }
+                })
+            }
+        }
+    })
+
+</script>
+
+<script>
+    imgs = document.getElementsByClassName('imgC')
+    urls = "{{productImgs|escapejs}}"
+    urls_m = urls.split("")
+    delete urls_m[0]
+    delete urls_m[1]
+    delete urls_m[urls_m.length-1]
+    delete urls_m[urls_m.length-2]
+    str = urls_m.join('')
+    urls_normalise = str.split("', '")
+
+    for (let i = 0; i< urls_normalise.length; i++)
+    {
+        imgs[i].src = urls_normalise[i]
+    }
+</script>
 
 {% endblock %}

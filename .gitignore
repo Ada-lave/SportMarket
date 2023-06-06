@@ -1,5 +1,6 @@
 env/pyvenv.cfg
 env
+MarketSport/apps/registrations/__pycache__
 MarketSport/apps/cart/__pycache__
 MarketSport/apps/core/__pycache__
 MarketSport/apps/store/__pycache__
@@ -9,6 +10,7 @@ MarketSport/apps/cart/migrations/__pycache__
 MarketSport/apps/core/migrations/__pycache__
 MarketSport/apps/store/migrations/__pycache__
 MarketSport/apps/order/migrations/__pycache__
+
 MarketSport/apps/registrations/migrations/__pycache__
 MarketSport/db.sqlite3
 MarketSport/apps/registrations/__pycache__/__init__.cpython-38.pyc
