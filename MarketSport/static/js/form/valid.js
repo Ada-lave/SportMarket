@@ -33,6 +33,7 @@ function validation(form) {
 }
 
 const form = document.querySelector("#add-form");
+console.log(form)
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -41,3 +42,4 @@ form.addEventListener("submit", function(event) {
     
   }
 });
+
