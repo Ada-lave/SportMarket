@@ -14,8 +14,8 @@
     <div class="reg">
 
         
-    <form class="MainForm" id="add-form" action="">
-        
+    <form class="MainForm" method="post" id="add-form">
+        {% csrf_token %}
         <div class="RegHeaderContainer">
 
             <p class="RegHeader">Регистрация</p>
@@ -23,26 +23,12 @@
         </div>
 
 
-        <p class="FromHeader">Ваше имя</p>
-        <input class="place FormReg" type="text">
-
-        <p class="FromHeader"> Ваша фамилия</p>
-        <input class="place FormReg" type="text">
         
-        <p class="FromHeader">Номер телефона</p>
-        <input class="place FormReg" type="number">
-
-        <p class="FromHeader">Логин</p>
-        <input class="place FormReg" type="text">
         
-        <p class="FromHeader">Электронная почта</p>
-        <input class="place FormReg" type="text">
-
-        <p class="FromHeader">Пароль</p>
-        <input class="place FormReg" type="text">
-        
-        <p class="FromHeader" >Подтвердите пароль</p>
-        <input class="place FormReg" type="text">
+        {% for field in form %}
+        <p> {{ field.label_tag }} </p>
+        {{ field }}
+        {% endfor %}
         
         <div class="btnContainer">
             <button class="RegBtn" type="submit">Регистрация</button>
@@ -66,7 +52,7 @@
 
 {% block scripts %}
 <script src="{% static 'js/navbar/header.js' %}"></script>
-<script src="{% static 'js/form/valid.js' %}"></script>
+
 
 
 {% endblock %}.

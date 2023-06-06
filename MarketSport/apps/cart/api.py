@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from apps.cart.cart import Cart
 from apps.order.utils import checkout
 from apps.order.models import Order
+from django.conf import settings
 
 from apps.store.models import Product
 from django.shortcuts import  redirect
@@ -22,6 +23,8 @@ def apiOrderCreator(request):
     order.save()
 
     cart.clear()
+    
+
 
     return JsonResponse({'order create':True})
 

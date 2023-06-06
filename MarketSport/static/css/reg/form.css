@@ -27,10 +27,11 @@ main{
 }
 
 
-.FromHeader{
 
+
+label {
     margin-bottom: 1px;
-    margin-top: 36px;
+    margin-top: 26px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -38,11 +39,10 @@ main{
     line-height: 20px;
 
     color: #989898;
-
-
 }
 
 .FormReg{
+    margin-top: -30px;
     width: 420px;
     height: 40px;
     background: #FFFFFF;
@@ -77,7 +77,7 @@ main{
     display:flex;
     justify-content: center;
     width: 580px;
-    height: 907px;
+    height: 1030px;
     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     margin-bottom: 58px;
