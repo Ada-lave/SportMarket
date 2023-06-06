@@ -2,11 +2,28 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from apps.cart.cart import Cart
+from apps.order.utils import checkout
+from apps.order.models import Order
 
 from apps.store.models import Product
 from django.shortcuts import  redirect
-def test(request):
-    return JsonResponse({"resp":'resl'})
+
+
+def apiOrderCreator(request):
+    print('order')
+    data = json.loads(request.body)
+    address = data['address']
+    cart = Cart(request)
+
+    order_id = checkout(request, address=address)
+
+    order = Order.objects.get(pk=order_id)
+    order.paid_amount = cart.totalCost()
+    order.save()
+
+    cart.clear()
+
+    return JsonResponse({'order create':True})
 
 def apiAddToCart(request):
     print(request)

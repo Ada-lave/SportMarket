@@ -9,6 +9,7 @@
 
 .DescriptionBlock{
     
+    
     display: flex;
     height: 986px;
     background-color: #fff;
@@ -17,6 +18,7 @@
 }
 
 .WhoWeHeading{
+    margin-top: 30px;
     margin-bottom: 80px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -49,6 +51,7 @@
 
 
 .DescriptionPhoto{
+    margin-top: 130px;
     width: 1500px;
     margin-left: -90px;
     height: 940px;
@@ -90,3 +93,5 @@
         margin-top: 40px;
     }
 }
+
+

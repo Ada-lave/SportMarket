@@ -328,3 +328,7 @@ input.error {
     border: 1px solid red;
   }
   
+
+.RemoveCard{
+    height: 20px;
+}

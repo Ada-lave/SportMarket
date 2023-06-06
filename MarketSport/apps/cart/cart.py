@@ -1,5 +1,7 @@
 from django.conf import settings
 from apps.store.models import Product
+import datetime as dt
+
 
 class Cart(object):
     def __init__(self, request):
@@ -17,7 +19,7 @@ class Cart(object):
         for id in product_ids:
             product_clean_ids.append(id)
             self.cart[str(id)]['product'] = Product.objects.get(pk=id)
-        
+
         for item in self.cart.values():
             item['total_price'] = float(item['price']) * int(item['quantity'])
 
@@ -26,6 +28,10 @@ class Cart(object):
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
     
+    def clear(self):
+        del self.session[settings.CART_SESSION_ID]
+        self.session.modified = True
+
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.cart
         self.session.modified = True
@@ -39,13 +45,12 @@ class Cart(object):
         color = product.color
 
         if id not in self.cart:
-            self.cart[id] = {'title':title,'id': id,'quantity':0,\
-                            'price':price, 'size': size, 'color': color, 'img':img}
-        
-        if update_q==False:
+            self.cart[id] = {'title': title, 'id': id, 'quantity': 0,
+                             'price': price, 'size': size, 'color': color, 'img': img}
+
+        if update_q == False:
             self.cart[id]['quantity'] = 1
-        
-        
+
         self.save()
 
     def remove(self, id):
@@ -54,16 +59,21 @@ class Cart(object):
             del self.cart[str(id)]
             self.save()
 
-    
+    def totalCost(self):
+        print(sum([item['price'] * item['quantity'] for item in self.cart.values()]))
+        return sum([item['price'] * item['quantity'] for item in self.cart.values()])
 
     def increment(self, id):
         if id in self.cart:
-            
 
             self.cart[id]['quantity'] += 1
             print('inc')
             self.save()
     
+    def date(self):
+        date = dt.datetime.now().date()
+        return date.strftime("%d.%m.%Y")
+
     def decrement(self, id):
         if id in self.cart:
             if self.cart[id]['quantity'] < 0:
@@ -71,6 +81,3 @@ class Cart(object):
             else:
                 self.cart[id]['quantity'] -= 1
             self.save()
-        
-        
-    
