@@ -43,11 +43,17 @@
             <span class="visually-hidden">Previous</span>
             </button>
             
+
+            
             
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <div id="test"></div>
+            
             <span class="visually-hidden">Next</span>
+            
             </button>
+            
         </div>
         
             
@@ -55,28 +61,23 @@
     </div>
 
     
-    <div class="Main">
+    <div id="main-info" class="Main">
         
-        <div class="WhoWe">
+        <div id="PleaseJob" class="WhoWe">
 
 
             
             
          
 
-            <div class="DescriptionBlock" >
+            <div  class="DescriptionBlock" >
                 
-                <div class="WhoWeText">
+                <div class= "WhoWeText" >
 
 
-                <a name="WhoWeLink" href=""></a>
-
-
-                        <h2 class="WhoWeHeading "  >
-
-                            Кто мы такие?
-
-                        </h2>
+                <h2  class="WhoWeHeading">
+                    Кто мы такие?
+                </h2>
 
                         
 
@@ -131,46 +132,49 @@
 
                 {% for product in products %}
                     
-                  <div class="CardArea">
                     
 
-                    
-
+                        <div class="CardArea"> 
            
-                        <div class="MainCardItem">
-    
                             <a href="{% url 'productDetail' product.category.slug product.slug %}">
-                                <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+
+                                <div class="MainCardItem">
+        
+                                    
+                                        <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                                    
+            
+                                    
+                                </div>
+            
+                                <div class="discharge1">
+            
+                                    <p>Новинка</p>
+            
+                                </div>
+            
+                                <div class="ColorValue">
+            
+                                    <p class="ColorValueText">2 цвета</p>
+            
+                                </div>
+                                
+            
+                                <div class="TextCard">
+            
+                                    <p class="NameCard">{{ product.title }}</p>
+            
+                                    <p class="PriceCard">₽ {{ product.price }}</p>
+            
+                                    <p class="NewPriceCard hidden">₽ 2400.00</p>
+            
+                                </div>
+
+
                             </a>
-    
-                            
+        
                         </div>
-    
-                        <div class="discharge1">
-    
-                            <p>Новинка</p>
-    
-                        </div>
-    
-                        <div class="ColorValue">
-    
-                            <p class="ColorValueText">2 цвета</p>
-    
-                        </div>
-                        
-    
-                        <div class="TextCard">
-    
-                            <p class="NameCard">{{ product.title }}</p>
-    
-                            <p class="PriceCard">₽ {{ product.price }}</p>
-    
-                            <p class="NewPriceCard hidden">₽ 2400.00</p>
-    
-                        </div>
-    
-                    </div>
-                    
+  
 
 
                   {% endfor %}

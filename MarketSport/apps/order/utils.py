@@ -1,7 +1,9 @@
 from apps.cart.cart import Cart
 from apps.order.models import *
 from apps.store.models import Product
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 def checkout(request,  address):
     print(request.user.__dict__)
@@ -18,7 +20,7 @@ def checkout(request,  address):
     text = f"Ваш заказ оформлен\nОбщая стоимость {cart.totalCost()}\nТовары которые вы выбрали:\n"
     for item in cart:
         text += f"{item['title']} {item['quantity']}шт\n"
-    email = EmailMessage(f"{request.user.get_full_name()} ваш заказ успешно оформлен", f"{text}\n Вам в скором времени перезвонить менеджер что бы подтвердить ваш заказ.", to=[request.user.email])
-    email.send()
+    send_mail(f"{request.user.get_full_name()} ваш заказ успешно оформлен" ,f"{text}\n Вам в скором времени перезвонить менеджер что бы подтвердить ваш заказ.",settings.EMAIL_HOST_USER, [request.user.email])
+    
         
     return order.id

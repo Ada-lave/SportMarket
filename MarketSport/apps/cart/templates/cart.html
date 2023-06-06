@@ -61,9 +61,9 @@
 
                         <div class="ProductValue">
 
-                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity([[ product.id ]])">+</div>
+                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity(product.id, product.quantity, product.price )">+</div>
                             <span>[[ product.quantity ]] шт</span>
-                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity([[ product.id ]])">-</div>
+                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity(product.id, product.quantity, product.price)">-</div>
 
 
                         </div>
@@ -98,7 +98,7 @@
         </div>
 
         <div class="PlaceOrder">
-            <p class="Finally">Товары на {{ cart.totalCost }} ₽</p>
+            <p class="Finally">Товары на [[ totalCost ]] ₽</p>
             <p class="ValueProduct">Товары,шт</p>
             <p class="ValueProduct">{{ user.get_full_name }}</p>
             <p class="ValueProduct">{{ user.email }}</p>
@@ -157,6 +157,11 @@
         mounted(){
             console.log("work")
         },
+        computed: {
+            totalCost: function(){
+                return store.state.totalCost
+            }
+        },
 
         methods:{
 
@@ -209,8 +214,9 @@
             },
             
 
-            incrementQuantity(prod_id, qua) {
+            incrementQuantity(prod_id, qua, price) {
                 var data = {'id':parseInt(prod_id)}
+                
 
 
                 fetch('/api/inc',{
@@ -232,10 +238,12 @@
                             this.products[i].quantity++
                         }
                     }
+                    
+                    store.commit('changeTotalCost', parseFloat(price))
                 })
             },
 
-            decrementQuantity(prod_id){
+            decrementQuantity(prod_id, qua, price){
                 let data = {'id':parseInt(prod_id)}
                 fetch('/api/dec',{
                     method: 'POST',
@@ -256,6 +264,7 @@
                             this.products[i].quantity--
                         }
                     }
+                    store.commit('changeTotalCost', -parseFloat(price))
                 })
             }
         }
