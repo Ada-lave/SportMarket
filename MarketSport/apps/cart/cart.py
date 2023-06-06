@@ -49,22 +49,27 @@ class Cart(object):
         self.save()
 
     def remove(self, id):
-        if id in self.cart:
-            del self.cart[id]
+        if str(id) in self.cart:
+            print('del cart')
+            del self.cart[str(id)]
             self.save()
 
     
 
     def increment(self, id):
         if id in self.cart:
+            
+
             self.cart[id]['quantity'] += 1
             print('inc')
             self.save()
     
     def decrement(self, id):
         if id in self.cart:
-            print('dec')
-            self.cart[id]['quantity'] -= 1
+            if self.cart[id]['quantity'] < 0:
+                self.cart[id]['quantity'] = 1
+            else:
+                self.cart[id]['quantity'] -= 1
             self.save()
         
         

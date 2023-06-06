@@ -17,3 +17,6 @@ def registration(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'reg.html', {'form':form})
+
+def sigin(request):
+    return render(request, 'sigin.html')
