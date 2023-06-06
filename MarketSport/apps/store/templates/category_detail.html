@@ -24,7 +24,7 @@
 
             <div class="MainCardItem">
 
-                <a href="#">
+                <a href="{% url 'productDetail' product.category.slug product.slug %}">
                     <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
                 </a>
 
