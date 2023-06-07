@@ -75,13 +75,43 @@
             <div class="UserMenu">
 
                 <ul class="MenuUserList">
-                    <li class="MenuUserItem"><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></li>
+                    <li class="MenuUserItem">
+                      <img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" >
+                    </li>
+
                     <form action="{% url 'search' %}" method="GET" >
                       <input class="SearchInput" type="text" name="q">
                     </form>
                     
-                    <li class="MenuUserItem"><a href="{% url 'cart' %}"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></a></li>
-                    <li class="MenuUserItem"><img src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile"></li>
+                    <li class="MenuUserItem">
+                      <a href="{% url 'cart' %}"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></a>
+                    </li>
+
+                    <li class="MenuUserItem ProfileImg">
+                      <img class="UserImg" src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile">
+
+                      <div class="ProfileMenu">
+
+                        
+                        <div class="UserImgContainer">
+
+                          <div class="UserImgBlock"></div>
+
+                          <div class="UserExit">
+                            <div class="NameContainer"><p>Владислав Шувалов</p></div>
+                            <p class="exit">Выход  <img class="exitImg" src= "{% static 'imgs/navbar/exit.png' %}" alt=""></p>
+                          </div>
+
+                        </div>
+
+                        
+                          
+                         
+
+                      </div>
+
+
+                    </li>
                 </ul>
 
             </div>

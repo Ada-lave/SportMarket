@@ -110,3 +110,77 @@ header{
 }
 
 input {outline:none;}
+
+
+
+.ProfileMenu{
+    opacity: 0;
+    transition: 0.3s;
+    min-height: 108px;
+    z-index: 1;
+    background-color: white;
+    border-radius: 4px;
+    width: 251px;
+    position: absolute;
+   color: black;
+}
+.ProfileMenuHidden{
+    opacity: 1;
+}
+
+.ProfileMenu p{
+    margin-left: 7px;
+    margin-top: 7px;
+    margin-bottom: 1px;
+    transition: 0.3s;
+}
+
+.ProfileMenu p:hover{
+    transition: 0.3s;
+    margin-bottom: 1px;
+    color: blue;
+}
+
+.UserImg{
+
+    z-index: 20 ;
+
+
+}
+
+.exit{
+    display: flex;
+    font-weight: 600;
+}
+
+.exitImg{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+
+.UserImgBlock{
+    
+    border-radius: 50%;
+    background-color: #CBCBCB;
+    width: 80px;
+    height: 80px;
+}
+
+.UserImgBlock{
+    display: flex;
+}
+
+
+.UserImgContainer{
+    margin-left: 10px;
+    margin-top: 15px;
+    display: flex;
+}
+
+
+
+
+
