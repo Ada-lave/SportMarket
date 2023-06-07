@@ -6,10 +6,7 @@
 
 @media screen and (max-width: 767px) {
         
-
-    section{
-        margin-top: 40px;
-    }
+    
 
     header{
         position: fixed;
@@ -177,4 +174,11 @@
         margin-top: 15px;
         display: flex;
     }
+
+
+
+    .BurgerMenu{
+        display: block;
+    }
+
 }
