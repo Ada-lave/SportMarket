@@ -1,145 +1,299 @@
+@media screen and (min-width: 768px){
 
 
-body,html{
+    body,html{
     
-    height: 100%;
+        height: 100%;
+        
+        }
+    
+    
+    
+    
+    body{
+        display: flex;
+        flex-direction: column;
+    }    
+        
+    section{
+            flex-grow: 1;
+            
+        }
+    
+    main{
+        display: flex;
+        width: 1180px;
+        margin: auto;
+        justify-content: center;
+    }
+    
+    
+    
+    
+    label {
+        margin-bottom: 1px;
+        margin-top: 26px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    
+        color: #989898;
+    }
+    
+    .FormReg{
+        margin-top: -30px;
+        width: 420px;
+        height: 40px;
+        background: #FFFFFF;
+        border: 2px solid #CBCBCB;
+        border-radius: 3px;
+    }
+    
+    
+    .RegBtn{
+        width: 200px;
+        height: 52px;
+        background: #DDF34B;
+        border-radius: 2px;
+        border: none;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 77px;    
+    }
+    
+    
+    .btnContainer{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .reg{
+        margin-top: 58px;
+        display:flex;
+        justify-content: center;
+        width: 580px;
+        height: 1030px;
+        box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        margin-bottom: 58px;
+    }
+    
+    .RegHeaderContainer{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    .RegHeader{
+    
+    
+        
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 49px;
+    text-align: center;
+    
+    
     
     }
-
-
-
-
-body{
-    display: flex;
-    flex-direction: column;
-}    
     
-section{
-        flex-grow: 1;
+    
+    
+    .login{
+        margin-top: 58px;
+        display:flex;
+        justify-content: center;
+        width: 580px;
+        height: 580px;
+        box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        margin-bottom: 58px;
+    }
+    
+    
+    .passwordHeader{
+        margin-top: 60px;
+    }
+    
+    
+    .UserCondition{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    
+    .UserConditionLink{
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+    
+        color: #0075FF;
+    
+    }
+    .RemoveCard{
+        height: 20px;
+    }
+    
+
+   
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    body,html{
+    
+        height: 100%;
+        
+        }
+    
+    
+    
+    
+    body{
+        display: flex;
+        flex-direction: column;
+    }    
+        
+    section{
+            flex-grow: 1;
+            
+        }
+    
+    main{
         
     }
-
-main{
-    display: flex;
-    width: 1180px;
-    margin: auto;
-    justify-content: center;
-}
-
-
-
-
-label {
-    margin-bottom: 1px;
-    margin-top: 26px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-
-    color: #989898;
-}
-
-.FormReg{
-    margin-top: -30px;
-    width: 420px;
-    height: 40px;
-    background: #FFFFFF;
-    border: 2px solid #CBCBCB;
-    border-radius: 3px;
-}
-
-
-.RegBtn{
-    width: 200px;
-    height: 52px;
-    background: #DDF34B;
-    border-radius: 2px;
-    border: none;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    margin-top: 77px;    
-}
-
-
-.btnContainer{
-    display: flex;
-    justify-content: center;
-}
-
-.reg{
-    margin-top: 58px;
-    display:flex;
-    justify-content: center;
-    width: 580px;
-    height: 1030px;
-    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    margin-bottom: 58px;
-}
-
-.RegHeaderContainer{
-    display: flex;
-    justify-content: center;
-}
-
-
-.RegHeader{
-
-
     
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 40px;
-line-height: 49px;
-text-align: center;
-
-
-
-}
-
-
-
-.login{
-    margin-top: 58px;
-    display:flex;
-    justify-content: center;
-    width: 580px;
-    height: 580px;
-    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    margin-bottom: 58px;
-}
-
-
-.passwordHeader{
-    margin-top: 60px;
-}
-
-
-.UserCondition{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-
-.UserConditionLink{
-    text-decoration: none;
+    
+    
+    
+    label {
+        margin-bottom: 1px;
+        margin-top: 26px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    
+        color: #989898;
+    }
+    
+    .FormReg{
+        margin-top: -30px;
+        width: 300px;
+        height: 40px;
+        background: #FFFFFF;
+        border: 2px solid #CBCBCB;
+        border-radius: 3px;
+    }
+    
+    
+    .RegBtn{
+        width: 200px;
+        height: 52px;
+        background: #DDF34B;
+        border-radius: 2px;
+        border: none;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 77px;    
+    }
+    
+    
+    .btnContainer{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .reg{
+        
+        display:flex;
+        justify-content: center;
+        width: 100%;
+        height: 1030px;
+    }
+    
+    .RegHeaderContainer{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    .RegHeader{
+    
+    
+        
+    font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 15px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 49px;
+    text-align: center;
+    
+    
+    
+    }
+    
+    
+    
+    .login{
+        margin-top: 58px;
+        display:flex;
+        justify-content: center;
+        width: 100%;
+        height: 580px;
+      
+        margin-bottom: 58px;
+    }
+    
+    
+    .passwordHeader{
+        margin-top: 60px;
+    }
+    
+    
+    .UserCondition{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    
+    .UserConditionLink{
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+    
+        color: #0075FF;
+    
+    }
+    .RemoveCard{
+        height: 20px;
+    }
+    
 
-    color: #0075FF;
-
-}
-.RemoveCard{
-    height: 20px;
 }

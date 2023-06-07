@@ -1,6 +1,10 @@
 
 @media screen and (max-width: 768px) {
 
+    section{
+        margin-top: 40px;
+    }
+
     .WhoWeBlock{
         display: flex;
         justify-content: center;
@@ -46,9 +50,9 @@
     
     
     .DescriptionPhoto{
-        margin-top: 187px;
-        margin-left: -343px;
-        max-width: 270px;
+        margin-top: 150px;
+        margin-left: -384px;
+        max-width: 360px;
         pointer-events: none;
     }
 

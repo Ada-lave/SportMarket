@@ -129,8 +129,42 @@
                 </ul>
 
             </div>
+    </div>
+
+    <div class="BurgerMenu">
+
+
+      <div class="menu">
+
+        <ul class="MenuList">
+            <li class="MenuItem"><a href="{% url 'mainpage' %}">Главная</a></li>
+
+            <li class="MenuItem HorizontalMenu">
+                
+                    <a class="btn  dropdown-toggle category" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Категории
+                    </a>
+                  
+                    <ul class="dropdown-menu DropMenu" aria-labelledby="dropdownMenuLink">
+                      {% for cat in categories %}
+                      <li><a href="{% url 'category' cat.slug %}">{{ cat.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+
+            </li>
+
+            <li class="MenuItem MenuItem_WhoWe" id="WhoWe">
+              <a href="{% url 'mainpage'  %}#PleaseJob">О нас</a>
+            </li>
+
+            <li class="MenuItem" id="Contats"><a href="#footer">Контакты</a></li>
+            
+        </ul>
+
 
     </div>
+</div>
+          
 
 </header>
   <section>  {% block content %}{% endblock %}</section>
