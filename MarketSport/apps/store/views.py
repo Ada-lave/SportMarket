@@ -5,6 +5,7 @@ def test(request):
     return render(request, 'test.html')
 
 def TestDate(request):
+    
     products = Product.objects.all()
     context = {
         'products': products
