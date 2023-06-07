@@ -1,3 +1,10 @@
+
+
+@media screen and (min-width: 768px)  {
+
+
+
+    
 .catalog{
    
     background-color:#fff;
@@ -160,5 +167,10 @@
 
 .CardArea a{
     text-decoration: none;
+}
+
+
+
+
 }
 

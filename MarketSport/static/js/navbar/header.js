@@ -36,6 +36,7 @@ window.addEventListener('scroll',function(){
     menu.style.visibility = ""
 
   }else if(CurrentTop > lastTop){
+    MainBlock.classList.remove('ProfileMenuHidden');
     input.classList.remove('SearchInput--active')
     header.style.backgroundColor = "#fff"
     header.style.height = "50px";

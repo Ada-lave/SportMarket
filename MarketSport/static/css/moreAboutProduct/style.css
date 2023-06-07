@@ -10,7 +10,14 @@ body{
     flex-direction: column;
 }
 
+
+section{
+    margin-top: 100px;
+}
+
 .MainAbout{
+
+    margin-top: 50px;
     width: 1180px;
     margin: 0 auto;
 }

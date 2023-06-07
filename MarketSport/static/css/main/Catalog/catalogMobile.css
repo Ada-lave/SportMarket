@@ -1,0 +1,175 @@
+
+
+@media screen and (max-width: 768px) {
+
+
+    .catalog{
+   
+        margin-top: 50px;
+        background-color:#fff;
+        
+        min-height: 1000px;
+    }
+    
+    
+    
+    .CatalogMain{
+    
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    .CardArea a{
+        text-decoration: none;
+    }
+    .CatalogHeading{
+        
+        display: flex;
+        justify-content: center;
+        
+    }
+    
+    .CatalogHeading h3{
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 49px;
+        color: #FBD305;
+    }
+    
+    
+    .MainCardItem{
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 3px;
+        width: 140px;
+        height: 160px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .CardGrid{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2,142px);
+        column-gap: 33px;
+        row-gap: 40px;
+    }
+    
+    
+    .CardImg{
+        width: 140px;
+        height: 160px;
+        left: 392.97px;
+        top: 2011.94px
+        
+    }
+    
+    
+    .discharge1{
+        transition: 0.4s;
+        backface-visibility: hidden;
+        width: 72.53px;
+        height: 27px;
+        background: #00FF47;
+        border-radius: 3px;
+        text-align: center;
+        color: #fff;
+        margin-left: auto;
+        font-weight: 400;
+        
+    
+    }
+    .discharge2{
+        backface-visibility: hidden;
+        width: 72.53px;
+        height: 27px;
+        background: #FF2E00;
+        border-radius: 3px;
+        text-align: center;
+        color: #fff;
+        margin-left: auto;
+        font-weight: 400;
+        
+    
+    }
+    
+    
+    .ColorValueText{
+        
+        transition: 0.4s;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+    
+        color: #777777;
+    }
+    
+    .CardArea{
+        transform-style: preserve-3d;
+        transition: 0.4s;
+        cursor: pointer;
+        transform: perspective(1px) translateZ(0);
+        backface-visibility: hidden;
+    }
+    
+    .TextCard{
+        backface-visibility: hidden;
+        transition: 0.4s;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 23px;
+        color: #000000;
+    }
+    
+    .NameCard{
+        transition: 0.4s;
+        backface-visibility: hidden;
+        margin-bottom: 6px;
+    }
+    
+    .OldPriceCard{
+        text-decoration: line-through;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    
+    .NewPriceCard{
+        color: #188A24;
+    }
+    
+    .hidden{
+        visibility: hidden;
+    }
+    
+    .CardArea:hover{
+        
+        transform: translateZ(0) scale(1.1);
+        backface-visibility: hidden;
+    
+        
+    }
+    
+    
+    .ProductCategoryHeader{
+        color: #000000;
+        font-size: 42px;
+        font-weight: 600;
+    }
+    
+    .CardArea a{
+        text-decoration: none;
+    }
+    
+    
+
+
+
+}
+
