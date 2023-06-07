@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .models import Profile
 from django.contrib.auth.models import User
-from .forms  import UserRegistrationForm
+from .forms  import UserRegistrationForm, LoginUserForm
 
 
 
-def registration(request):
+def registrationUser(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -29,5 +29,28 @@ def registration(request):
         form = UserRegistrationForm()
     return render(request, 'reg.html', {'form':form})
 
-def sigin(request):
-    return render(request, 'sigin.html')
+def siginUser(request):
+    if request.method =='GET':
+        form = LoginUserForm()
+        return render(request, 'sigin.html', {'form':form})
+    elif request.method =='POST':
+        form = LoginUserForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data['login']
+            password = form.cleaned_data['password']
+
+            user = authenticate(request, username=username, password=password)
+
+            if user:
+                login(user=user, request=request)
+                messages.success(request, 'Вход успешно выполнен')
+                return redirect('mainpage')
+            
+        messages.error(request, 'Неверно введен пароль или логин')
+        return render(request, 'sigin.html', {'form':form})
+    
+
+def logoutUser(request):
+    logout(request)
+    return redirect('mainpage')
