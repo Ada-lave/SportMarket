@@ -44,7 +44,7 @@ def siginUser(request):
 
             if user:
                 login(user=user, request=request)
-                messages.success(request, 'Вход успешно выполнен')
+        
                 return redirect('mainpage')
             
         messages.error(request, 'Неверно введен пароль или логин')

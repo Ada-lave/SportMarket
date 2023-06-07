@@ -119,10 +119,20 @@
             </form>
 
             
+            {% if user.is_authenticated %}
 
             <div class="center">
                 <button class="PlaceBtn" v-on:click="createOrder()" type="submit">Оформить заказ</button>
             </div>
+
+            {% else %}
+
+            <div class="center">
+                <button class="PlaceBtn"type="submit">Перед оформлением заказ авторизуйтесь</button>
+            </div>
+
+            {% endif %}
+
         </div>
         
 

@@ -27,6 +27,11 @@
         <p>{{ field.label_tag }}</p>
         {{ field }}
         {% endfor %}
+        {% if messages %}
+        {% for message in messages %}
+        <p></p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
         
         <div class="btnContainer">
             <button class="RegBtn" type="submit">Войти</button>
@@ -34,7 +39,7 @@
         
         <div class="UserCondition">
 
-            <a class="UserConditionLink" href="#">Не зарегестрированны?</a>
+            <a class="UserConditionLink" href="{% url 'signup' %}">Не зарегестрированны?</a>
 
         </div>
 

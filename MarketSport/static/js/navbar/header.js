@@ -1,5 +1,8 @@
 
 
+
+//search
+
 let input = document.querySelector('.SearchInput');
 let icon = document.querySelector('.search');
 
@@ -11,7 +14,7 @@ icon.addEventListener('click',()=>{
   
 })
 
-
+//stickyheader
 
 let lastTop = 0;
 let header = document.querySelector('header');
@@ -55,5 +58,17 @@ window.addEventListener('scroll',function(){
 })
 
 
+
+
+//profile
+
+
+const UserIcon = document.querySelector('.ProfileImg');
+const MainBlock = document.querySelector('.ProfileMenu')
+
+UserIcon.addEventListener('click', ()=>{
+
+      MainBlock.classList.toggle('ProfileMenuHidden');
+})
 
 

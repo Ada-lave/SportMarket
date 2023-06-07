@@ -157,3 +157,8 @@
     font-size: 42px;
     font-weight: 600;
 }
+
+.CardArea a{
+    text-decoration: none;
+}
+
