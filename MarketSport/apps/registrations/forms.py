@@ -27,3 +27,11 @@ class UserRegistrationForm(forms.Form):
 
     class Meta:
         model = User
+
+class LoginUserForm(forms.Form):
+    login = forms.CharField(max_length=100 ,label='Логин', widget=forms.TextInput(attrs={
+        'class': 'place FormReg'
+    }))
+    password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={
+        'class':'place FormReg'
+    }))
