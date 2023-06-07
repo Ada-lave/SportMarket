@@ -229,7 +229,6 @@
 
     var app = new Vue({
         el: '#app',
-        store: store,
         data(){
             return {
 
@@ -238,7 +237,7 @@
 
         methods:{
             addToCart(prod_id){
-
+                console.log(prod_id)
                 var data = {'id':prod_id, 'update':false, 'quantity':1}
 
                 fetch('/api/add',{
@@ -252,7 +251,6 @@
                 })
                 .then((response) => {
                     console.log(response)
-                    store.commit('incriment',1)
                 })
                 
                     .catch(function error(){

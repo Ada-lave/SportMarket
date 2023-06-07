@@ -18,43 +18,46 @@
         <div class="CardGrid">
 
         {% for product in products %}
-          <div class="CardArea">
+        <div class="CardArea"> 
+           
+            <a href="{% url 'productDetail' product.category.slug product.slug %}">
 
-            
+                <div class="MainCardItem">
 
-            <div class="MainCardItem">
+                    
+                        <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                    
 
-                <a href="#">
-                    <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
-                </a>
+                    
+                </div>
 
+                <div class="discharge1">
+
+                    <p>Новинка</p>
+
+                </div>
+
+                <div class="ColorValue">
+
+                    <p class="ColorValueText">2 цвета</p>
+
+                </div>
                 
-            </div>
 
-            <div class="discharge1">
+                <div class="TextCard">
 
-                <p>Новинка</p>
+                    <p class="NameCard">{{ product.title }}</p>
 
-            </div>
+                    <p class="PriceCard">₽ {{ product.price }}</p>
 
-            <div class="ColorValue">
+                    <p class="NewPriceCard hidden">₽ 2400.00</p>
 
-                <p class="ColorValueText">2 цвета</p>
+                </div>
 
-            </div>
-            
 
-            <div class="TextCard">
+            </a>
 
-                <p class="NameCard">{{ product.title }}</p>
-
-                <p class="PriceCard">₽ {{ product.price }}</p>
-
-                <p class="NewPriceCard hidden">₽ 2400.00</p>
-
-            </div>
-
-          </div>
+        </div>
           {% endfor %}
           
 

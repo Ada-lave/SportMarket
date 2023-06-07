@@ -64,7 +64,7 @@
                 </li>
 
                 <li class="MenuItem MenuItem_WhoWe" id="WhoWe">
-                  <a href="#PleaseJob">О нас</a>
+                  <a href="{% url 'mainpage'  %}#PleaseJob">О нас</a>
                 </li>
 
                 <li class="MenuItem" id="Contats"><a href="#footer">Контакты</a></li>
@@ -193,12 +193,16 @@
   <script>
     var store = new Vuex.Store({
       state: {
-
+          totalCost : {{ cart.totalCost }}
       },
-      mutation: {
+      mutations: {
         increment(state, quantity) {
           state.NumItems += quantity
       },
+        changeTotalCost(state, newCost){
+          state.totalCost += newCost
+        }
+
       }
 
 

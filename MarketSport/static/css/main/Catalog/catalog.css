@@ -14,7 +14,9 @@
 }
 
 
-
+.CardArea a{
+    text-decoration: none;
+}
 .CatalogHeading{
     
     display: flex;
