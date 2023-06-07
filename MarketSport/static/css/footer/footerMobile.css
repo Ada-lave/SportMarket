@@ -1,6 +1,6 @@
 
+@media screen and (max-width: 768px) {
 
-@media screen and (min-width: 768px) {
 
     .basement{
         color: white;
@@ -13,7 +13,7 @@
     
     
     .MainBasement{
-        width: 1180px;
+        width: 100%;
         margin: 0 auto;
     }
     
@@ -31,28 +31,32 @@
     
     
     .ContactsItem a{
+        font-size: 12px;
         display: flex;
         color: white;
         text-decoration: none;
     }
     
     .iconMail{
+        display: none;
         margin-top: -4px;
-        width: 41px;
-        height: 40.81px;
+        width: 10px;
+        height: 10px;
         background-image:url("/static/imgs/footer/mail.png");
         margin-right: 20px;
     }
     .iconVk{
-        width: 41px;
+        display: none;
+        width: 10px;
         height: 40.81px;
         background-image:url("/static/imgs/footer/vk.png");
         margin-right: 20px;
     }
-    .iconPhone{ 
+    .iconPhone{
+        display: none;
         margin-top: -6px;
-        width: 41px;
-        height: 40.81px;
+        width: 10px;
+        height: 10px;
         background-image:url("/static/imgs/footer/phone.png");
         margin-right: 20px;
     }
@@ -64,8 +68,8 @@
     
     .ContacsItemCenter{
     
-        margin-right: 197px;
-        margin-left: 197px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
     
     .LogoCenter img{
@@ -75,7 +79,9 @@
     }
 
 
+    
+
+
+
 }
-
-
 

@@ -82,6 +82,7 @@ main{
 }
 
 .Cart{
+    min-height: 1300px;
     display: flex;
     flex-direction: column;
 }
@@ -156,6 +157,7 @@ main{
 
 
 .ValueBackgroundProduct{
+	user-select: none;
     cursor: pointer;
     width: 26px;
     height: 26px;
@@ -216,7 +218,7 @@ main{
     margin-left: 80px;
     margin-top: 50px;
     min-width: 339px;
-    height: 594px;
+    height: 453px;
     background: #FFFFFF;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -261,7 +263,7 @@ main{
 }
 
 .PlaceBtn{
-    
+    margin-left: 30px;
     background-color: #E6FF4F;
     color:000000;
     border: none;
@@ -303,7 +305,7 @@ main{
 
 
 .FormList input{
-    transition: 0.3s;
+    transition: 0.1s;
     width: 170px;
     height: 20px;
     border: 2px solid #EAEAEA;
@@ -321,7 +323,7 @@ main{
 
 .FormList input:focus{
     border: 2px solid #CDCCCC;
-    transition: 3s;
+    transition: 0.1s;
 }
 
 input.error {
