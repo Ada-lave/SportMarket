@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 from .models import Product, Category
 
 def test(request):
@@ -6,8 +7,14 @@ def test(request):
 
 def TestDate(request):
     products = Product.objects.all()
+
+    paginator = Paginator(products, 9)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+
+
     context = {
-        'products': products
+        'products': page_obj
     }
     return render(request, 'main.html', context)
 
@@ -26,8 +33,13 @@ def categoryDetail(request, slug):
     catName = Category.objects.get(slug = slug).title
     products = cat.product.all()
 
+    paginator = Paginator(products, 9)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    
+
     context = {
-        "products" : products,
+        "products" : page_obj,
         "categoryName":catName
     }
 
