@@ -3,6 +3,7 @@
 
     {% block styles %}
     <link rel="stylesheet" href="{% static 'css/moreAboutProduct/style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/moreAboutProduct/styleMobile.css' %}"> 
 
     <!-- Если есть необходимость подключить другие стили подключай тут, а так файлик css в котором можно писать лежит выше-->
 
@@ -73,23 +74,28 @@
             <a class="ProductCategoryLink" href="{% url 'category' product.category.slug %}"><h2 class="ProductCategory">{{ product.category.title }}</h2></a>
             <p class="ProductPrice">₽ {{ product.price }}</p>
 
-                <p class="ColorListHeading">Цвет</p>
+                <div class="HarProoduct">
 
-                <div class="ColorList">
+                    <p class="ColorListHeading">Цвет</p>
 
-                <a href="#"><div class="ColorProduct" style="background-color: {{ product.color }};"></div></a>
+                    <div class="ColorList">
+    
+                    <a href="#"><div class="ColorProduct" style="background-color: {{ product.color }};"></div></a>
+    
+                    </div>
+    
+    
+                    <p class="SizeListHeading">Размер</p>
+    
+                    <div class="SizeList">
+    
+                    <div class="SizeItem ">
+                        <div class="SizeText">{{ product.size }}</div>
+                    </div>
+    
+
 
                 </div>
-
-
-                <p class="SizeListHeading">Размер</p>
-
-                <div class="SizeList">
-
-                <div class="SizeItem ">
-                    <div class="SizeText">{{ product.size }}</div>
-                </div>
-
                 
 
                 </div>

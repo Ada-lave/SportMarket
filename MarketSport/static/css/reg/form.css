@@ -16,6 +16,8 @@
     }    
         
     section{
+
+            margin-top: 100px;
             flex-grow: 1;
             
         }

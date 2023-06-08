@@ -1,7 +1,4 @@
-
-@media screen and (min-width: 768px)  {
-
-
+@media screen and (max-width: 767px) {
 
 
     body,html{
@@ -24,13 +21,16 @@
         .MainAbout{
         
             margin-top: 50px;
-            width: 1180px;
+            width: 100%;
             margin: 0 auto;
         }
         
+        .HistoryLink{
+            margin-left: 6px;
+        }
         
         .HistoryLink a{
-            margin-right: 27px;
+            margin-right: 15px;
             font-style: normal;
             font-weight: 300;
             font-size: 16px;
@@ -46,37 +46,44 @@
         }
         
         .HistoryLink{
-            margin-top: 13px;
         }
         
+
+        .SliderList{
+            margin-left: 17px;
+        }
+
         
         .SliderListItem{
             background-color: #A09E9E;
-            width: 100px;
-            height: 126px;
+            width: 69px;
+            height: 71px;
             margin-bottom: 28px;
         }
         
         
         .Product{
-            display: flex;
-            margin-top: 40px;
+            margin-top: 20px;
         }
         
         
         .MainImgWrapper{
-            margin-left: 80px;
-            width: 499px;
-            height: 588px;
+            margin-top: -396px;
+            margin-left: 103px;
+            width: 291px;
+            height: 369px;
             background-color: #A09E9E;
         }
+        
         
         
         
         
         
         .ProductInformation{
-            margin-left: 80px;
+            margin-top: 30px;
+            margin-left: 19px;
+
         }
         
         .ProductHeading{
@@ -84,7 +91,7 @@
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 600;
-            font-size: 24px;
+            font-size: 32px;
             line-height: 29px;
             color: #000000;
         
@@ -92,7 +99,6 @@
         
         
         .ProductCategory{
-            margin-top: 19px;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 300;
@@ -112,7 +118,7 @@
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 400;
-            font-size: 36px;
+            font-size: 40px;
             line-height: 44px;
         
             color: #000000;
@@ -120,7 +126,6 @@
         
         
         .ColorListHeading{
-            margin-top: 30px;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 300;
@@ -140,13 +145,15 @@
         }
         
         .ColorList{
+            margin-left: 10px;
+        }
+
+        .HarProoduct{
             display: flex;
-        
         }
         
         
         .SizeListHeading{
-            margin-top: 42px;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 300;
@@ -156,6 +163,7 @@
         }
         
         .SizeItem{
+            margin-left: 10px;
             cursor: pointer;
             width: 36px;
             height: 34px;
@@ -169,7 +177,6 @@
             line-height: 20px;
             display: flex;
             justify-content: center;
-            margin-right: 11px;
         
         }
         
@@ -191,10 +198,10 @@
         
         
         .AddCartBtn{
+            margin-top: 77px;
             background-color: #EBFF03;
-            margin-top: 80px;
-            width: 200px;
-            height: 52px;
+            width: 355px;
+            height: 63px;
             border: none;
             font-family: 'Montserrat';
             font-style: normal;
@@ -202,7 +209,8 @@
             font-size: 16px;
             line-height: 20px;
             text-align: center;
-            transition:  0.5s;
+            transition: 0.5s;
+
             
         }
         
@@ -220,6 +228,7 @@
         
         
         .productDescriptionHeader{
+            margin-left: 20px;
             margin-top: 20px;
             font-family: 'Montserrat';
             font-style: normal;
@@ -232,21 +241,19 @@
         }
         
         .Descripton{
-            margin-top: 30px;
-            width: 700px;
+            max-width: 100%;
+            width: 90%;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 400;
             font-size: 20px;
             line-height: 24px;
-            
             color: #000000;
-            min-height: 550px;   
+            min-height: 223px;
         }
         
         
         .ProductDescription{
-            display: flex;
             
             font-family: 'Montserrat';
             font-style: normal;
@@ -264,7 +271,7 @@
         
         
         .Specifications{
-            margin-left: 57px;
+            margin-left: 30px;
         }
         
         .SpecificationsItem{
@@ -330,8 +337,7 @@
         
         
         .SliderImg{
-            width: 100px;
-            height: 126px;
+
         }
         
         .SliderListItem{
@@ -340,19 +346,16 @@
         
         .Line{
             height: 3px;
-            width: 100px;
             background-color: #0019FF;
         }
         
         .MainImg{
-            width: 499px;
-            height: 606px;
+
         }
 
 
 
+       
 
 
 }
-
-
