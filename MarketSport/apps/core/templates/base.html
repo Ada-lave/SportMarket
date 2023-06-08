@@ -115,7 +115,7 @@
                           <div class="UserImgBlock"></div>
                           
                           <div class="UserExit">
-                            <div class="NameContainer"><p>Владислав Шувалов</p></div>
+                            <div class="NameContainer"><p>{{ user.get_full_name }}</p></div>
                             <a href="{% url 'logout' %}" class="exit">Выход  <img class="exitImg" src= "{% static 'imgs/navbar/exit.png' %}" alt=""></a>
                           </div>
 
@@ -168,12 +168,16 @@
             </ul>       
             
             
-
+            
             <div class="BurgerItem"><a href="{% url 'mainpage'  %}#PleaseJob">О нас</a></div>
             <div class="BurgerItem"><a href="#footer">Контакты</a></div>
             <div class="BurgerItem"><a href="{% url 'cart' %}">Корзина</a></div>
-            <div class="BurgerItem name"><a href="#">Коновалов Арсений</a></div>
-            <div class="BurgerItem exit_login"><a href="#">Войти</a></div>
+            {% if user.is_authenticated %}
+            <div class="BurgerItem name"><a href="#">{{ user.get_full_name }}</a></div>
+            <div class="BurgerItem exit_login"><a href="{% url 'logout' %}">Выйти</a></div>
+            {% else %}
+            <div class="BurgerItem exit_login"><a href="{% url 'signin' %}">Войти</a></div>
+            {% endif %}
 
     </div>
    
