@@ -73,3 +73,44 @@ UserIcon.addEventListener('click', ()=>{
 })
 
 
+
+let BurgerWrapper = document.querySelector('.BurgerWrapper')
+let OpenMenu = document.querySelector('.OpenMenu')
+let Category = document.querySelector('.Category')
+let CategoryList = document.querySelector('.CategoryList')
+let text = document.querySelectorAll('.BurgerItem')
+let TextCategory = document.querySelectorAll('.CategoryTextItem')
+
+
+
+OpenMenu.addEventListener('click',()=>{
+  BurgerWrapper.classList.toggle('BurgerWrapperActiv');
+  CategoryList.classList.remove('CategoryListActive')
+  for(let i = 0; i < text.length; i++){
+    text[i].classList.toggle('BurgerItemActive');
+  }
+
+  for(let i = 0; i < TextCategory.length; i++){
+    TextCategory[i].classList.remove('CategoryTextItemActiv');
+  }
+
+});
+        
+
+Category.addEventListener('click',()=>{
+
+
+  CategoryList.classList.toggle('CategoryListActive')
+  for( let i = 0; i < TextCategory.length; i++){
+
+    TextCategory[i].classList.toggle('CategoryTextItemActiv')
+
+  }
+  
+
+
+})
+
+
+
+

@@ -99,7 +99,7 @@
     }
     
     .search{
-        z-index: 4;
+       margin-left: -3px;
     }
     
     .DropMenu{
@@ -175,10 +175,137 @@
         display: flex;
     }
 
+    
 
 
-    .BurgerMenu{
-        display: block;
-    }
+        .BurgerWrapper{
+            
+            background-color: #fff;
+            overflow: hidden;
+            transition: 0.3s;
+            width: 0px;
+            height: 364px;
+        }
+        
+        .BurgerWrapperActiv{
+            margin-top: -34px;
+            background-color: #fff;
+            overflow: hidden;
+            visibility: visible;
+            transition: 0.1s;
+            width: 100vh;
+            height: 129vh;
+        
+        }
+        
+        
+        .Category{
+            background-color: #fff;
+        }
+        
+        .CategoryList{
+            overflow: hidden;
+            transition: 0.5s;
+            width: 100px;
+            height:0px;
+            visibility: hidden;
+            margin-left: 60px;
+            margin-left: 30px;
+        
+        }
+
+        .CategoryListActive{
+            overflow: hidden;
+            transition: 0.5s;
+            width: 278px;
+            height: 83px;
+            margin-left: 0px;
+            color: #B8B8B8;
+            text-decoration: none;
+        
+        }
+
+        .CategoryTextItemActive a{
+            color: #707070;
+            text-decoration: none;
+        }
+
+        .CategoryTextItem a{
+                text-decoration: none;
+                color: #707070;
+        }
+   
+        
+
+        .HamburgerImg{
+            margin-top: -80px;
+            width: 21px;
+            height: 20px;
+            margin-left: 10px;
+
+        }
+
+        .BurgerItem{
+            opacity: 0;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+        .BurgerItemActive{
+            margin-left: 60px;
+            opacity: 1;
+            transition: 0.2s;
+            margin-top: 23px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+
+        .BurgerItem a{
+            color: black;
+            text-decoration: none;
+        }
+
+        .SearchMobile{
+            border: 1px solid #B8B8B8;
+            border-color: #B8B8B8;
+            text-align: center;
+            border-radius: 45px;
+        }
+        .search{
+           
+        }
+
+        .exit_login{
+            font-weight: 700;
+        }
+
+
+        .name a{
+            color: blue;
+        }
+
+
+        .CategoryTextItem{
+            margin-left: 30px;
+            visibility: hidden;
+        }
+
+        .CategoryTextItemActiv{
+            margin-left: 30px;
+            visibility: visible;
+        }
+
+
+        .BtnSearch{
+                margin-left: -40px;
+                border: 1px solid #B8B8B8;
+                background-color: #fff;
+                border-radius: 22px;
+                width: 40px;
+                height: 38px;
+            
+        }
+
+     
 
 }

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/navbar/navbar.css' %}">
   <link rel="stylesheet" href="{% static 'css/navbar/navbarMobile.css' %}">
@@ -42,11 +43,23 @@
 <body>
   
   <header>
+
+
+    
+
+
+
     <div class="logo">
             <a href="{% url 'mainpage' %}" class="logoLink">
                 <img src="{% static 'imgs/navbar/logo.png' %}" alt="" class="logoImg">
             </a>
     </div>
+
+    <nav>
+
+    </nav>
+    
+
 
     <div class="menu">
 
@@ -129,44 +142,47 @@
                 </ul>
 
             </div>
+
+
+           
     </div>
 
-    <div class="BurgerMenu">
+    <div class="OpenMenu"><img class="HamburgerImg" src="{% static 'imgs/navbar/BurgerMenu.png' %}" alt=""></div>
+    
+    <div class="BurgerWrapper">
 
-
-      <div class="menu">
-
-        <ul class="MenuList">
-            <li class="MenuItem"><a href="{% url 'mainpage' %}">Главная</a></li>
-
-            <li class="MenuItem HorizontalMenu">
-                
-                    <a class="btn  dropdown-toggle category" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      Категории
-                    </a>
-                  
-                    <ul class="dropdown-menu DropMenu" aria-labelledby="dropdownMenuLink">
-                      {% for cat in categories %}
-                      <li><a href="{% url 'category' cat.slug %}">{{ cat.title }}</a></li>
-                      {% endfor %}
-                    </ul>
-
-            </li>
-
-            <li class="MenuItem MenuItem_WhoWe" id="WhoWe">
-              <a href="{% url 'mainpage'  %}#PleaseJob">О нас</a>
-            </li>
-
-            <li class="MenuItem" id="Contats"><a href="#footer">Контакты</a></li>
+        <div class="BurgerItem">
+          <form action="">
+            <input type="text" class="SearchMobile">
+            <button class="BtnSearch" type="submit"><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></button>
+          </form>
+        
+        </div>
+        <div class="BurgerItem"><a href="{% url 'mainpage' %}">Главная</a></div>
+        <div class="Category BurgerItem">Категории</div>
             
-        </ul>
+            <ul class="CategoryList">
+              {% for cat in categories %}
+              <li class="CategoryTextItem"><a href="{% url 'category' cat.slug %}">{{ cat.title }}</a></li>
+              {% endfor %}
+            </ul>       
+            
+            
 
+            <div class="BurgerItem"><a href="{% url 'mainpage'  %}#PleaseJob">О нас</a></div>
+            <div class="BurgerItem"><a href="#footer">Контакты</a></div>
+            <div class="BurgerItem"><a href="{% url 'cart' %}">Корзина</a></div>
+            <div class="BurgerItem name"><a href="#">Коновалов Арсений</a></div>
+            <div class="BurgerItem exit_login"><a href="#">Войти</a></div>
 
     </div>
-</div>
-          
+   
+
+
+
 
 </header>
+
   <section>  {% block content %}{% endblock %}</section>
 
   <footer class="basement" id="#basement">
@@ -230,10 +246,12 @@
   
 </footer>
 
-  <script>  
-    
-  
+  <script>
+
   </script>
+
+
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
