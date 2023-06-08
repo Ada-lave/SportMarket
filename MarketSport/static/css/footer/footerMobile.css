@@ -1,0 +1,87 @@
+
+@media screen and (max-width: 768px) {
+
+
+    .basement{
+        color: white;
+        width: 100%;
+        background-color:black;
+        min-height: 170px;
+        
+    }
+    
+    
+    
+    .MainBasement{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    
+    .ContactsGrid{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    .ContactsItem{
+        
+        
+    }
+    
+    
+    .ContactsItem a{
+        font-size: 12px;
+        display: flex;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .iconMail{
+        display: none;
+        margin-top: -4px;
+        width: 10px;
+        height: 10px;
+        background-image:url("/static/imgs/footer/mail.png");
+        margin-right: 20px;
+    }
+    .iconVk{
+        display: none;
+        width: 10px;
+        height: 40.81px;
+        background-image:url("/static/imgs/footer/vk.png");
+        margin-right: 20px;
+    }
+    .iconPhone{
+        display: none;
+        margin-top: -6px;
+        width: 10px;
+        height: 10px;
+        background-image:url("/static/imgs/footer/phone.png");
+        margin-right: 20px;
+    }
+    
+    .FooterLogoTextMain{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .ContacsItemCenter{
+    
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    
+    .LogoCenter img{
+        margin-left: 35px;
+        margin-bottom: 5px;
+        margin-top: 9px;
+    }
+
+
+    
+
+
+
+}
+

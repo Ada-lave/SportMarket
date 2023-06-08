@@ -1,20 +1,58 @@
-<h2>Reg</h2>
-<form method="post">
-    {% csrf_token %}
+{% extends 'base.html' %}
+{% load static %}
 
-    {% for field in form %}
-    <p>
-        {{ field.label_tag }}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/reg/form.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+
+    <div class="reg">
+
+        
+    <form class="MainForm" method="post" id="add-form">
+        {% csrf_token %}
+        <div class="RegHeaderContainer">
+
+            <p class="RegHeader">Регистрация</p>
+
+        </div>
+
+
+        
+        
+        {% for field in form %}
+        <p> {{ field.label_tag }} </p>
         {{ field }}
-
-        {% if field.help_text %}
-            <small> {{ field.help_text }} </small>
-        {% endif %}
-
-        {% for error in field.errors %}
-        <p style="color:red"> {{ error }} </p>
         {% endfor %}
-    </p>
-    {% endfor %}
-    <button type="submit">Reg</button>
-</form>
+        
+        <div class="btnContainer">
+            <button class="RegBtn" type="submit">Регистрация</button>
+        </div>
+        <div class="UserCondition">
+
+            <a class="UserConditionLink" href="{% url 'signin' %}">Уже зарегестрированны?</a>
+
+        </div>
+
+    </form>
+
+    </div>
+
+
+</main>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/navbar/header.js' %}"></script>
+
+
+
+{% endblock %}.

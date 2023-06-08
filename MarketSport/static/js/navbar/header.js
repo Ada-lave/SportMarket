@@ -1,5 +1,8 @@
 
 
+
+//search
+
 let input = document.querySelector('.SearchInput');
 let icon = document.querySelector('.search');
 
@@ -11,7 +14,7 @@ icon.addEventListener('click',()=>{
   
 })
 
-
+//stickyheader
 
 let lastTop = 0;
 let header = document.querySelector('header');
@@ -33,6 +36,7 @@ window.addEventListener('scroll',function(){
     menu.style.visibility = ""
 
   }else if(CurrentTop > lastTop){
+    MainBlock.classList.remove('ProfileMenuHidden');
     input.classList.remove('SearchInput--active')
     header.style.backgroundColor = "#fff"
     header.style.height = "50px";
@@ -55,5 +59,17 @@ window.addEventListener('scroll',function(){
 })
 
 
+
+
+//profile
+
+
+const UserIcon = document.querySelector('.ProfileImg');
+const MainBlock = document.querySelector('.ProfileMenu')
+
+UserIcon.addEventListener('click', ()=>{
+
+      MainBlock.classList.toggle('ProfileMenuHidden');
+})
 
 

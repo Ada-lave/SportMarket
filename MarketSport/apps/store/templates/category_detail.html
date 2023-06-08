@@ -7,58 +7,57 @@
  
     <div class="catalog">
 
-        <div class="CatalogHeading">
-
-             
-             {% if error %}
-             <h3> Нам не удалось найти ваш товар </h3>
-             {% else %}
-             <h3>По вашему запросу найдено 0 товаров</h3>
-             {% endif %}
-             
-        </div>
+        
+        {% if error %}
+        <h3> Нам не удалось найти ваш товар </h3>
+        {% else %}
+        <h2 class="ProductCategoryHeader">Товары в категории <span style="text-transform: lowercase; color: #58D0D8;">{{ categoryName }}</span> </h2>
+        {% endif %}
     
 
         <div class="CardGrid">
 
         {% for product in products %}
-          <div class="CardArea">
+        <div class="CardArea"> 
+           
+            <a href="{% url 'productDetail' product.category.slug product.slug %}">
 
-            
+                <div class="MainCardItem">
 
-            <div class="MainCardItem">
+                    
+                        <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                    
 
-                <a href="#">
-                    <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
-                </a>
+                    
+                </div>
 
+                <div class="discharge1">
+
+                    <p>Новинка</p>
+
+                </div>
+
+                <div class="ColorValue">
+
+                    <p class="ColorValueText">2 цвета</p>
+
+                </div>
                 
-            </div>
 
-            <div class="discharge1">
+                <div class="TextCard">
 
-                <p>Новинка</p>
+                    <p class="NameCard">{{ product.title }}</p>
 
-            </div>
+                    <p class="PriceCard">₽ {{ product.price }}</p>
 
-            <div class="ColorValue">
+                    <p class="NewPriceCard hidden">₽ 2400.00</p>
 
-                <p class="ColorValueText">2 цвета</p>
+                </div>
 
-            </div>
-            
 
-            <div class="TextCard">
+            </a>
 
-                <p class="NameCard">{{ product.title }}</p>
-
-                <p class="PriceCard">₽ {{ product.price }}</p>
-
-                <p class="NewPriceCard hidden">₽ 2400.00</p>
-
-            </div>
-
-          </div>
+        </div>
           {% endfor %}
           
 
@@ -66,6 +65,50 @@
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation example" style="max-width: 100%; margin-bottom: 20px">
+    <ul class="pagination justify-content-center">
+    {% if products.has_previous %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ products.previous_page_number }}">Предыдущая</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Предыдущая</a>
+      </li>
+    {% endif %}
+
+    {% if products.number|add:'-4' > 1 %}
+        <li class="page-item"><a class="page-link" href="?page={{ products.number|add:'-5' }}">&hellip;</a></li>
+    {% endif %}
+
+    {% for i in products.paginator.page_range %}
+        {% if products.number == i %}
+            <li class="page-item active" aria-current="page">
+          <span class="page-link">
+            {{ i }}
+            <span class="sr-only">Текущая</span>
+          </span>
+        </li>
+        {% elif i > products.number|add:'-5' and i < products.number|add:'5' %}
+             <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if products.paginator.num_pages > products.number|add:'4' %}
+       <li class="page-item"><a class="page-link" href="?page={{ products.number|add:'5' }}">&hellip;</a></li>
+    {% endif %}
+
+    {% if products.has_next %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ products.next_page_number }}">Следующая</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Следующая</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
 {% endblock %}
 
 {% block scripts %}

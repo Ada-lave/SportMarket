@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/reg/form.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+
+    <div class="login">
+
+        
+    <form class="MainForm" id="add-form" method="post">
+        {% csrf_token %}
+        <div class="RegHeaderContainer">
+
+            <p class="RegHeader">Войти в аккаунт</p>
+
+        </div>
+
+
+        {% for field in form %}
+        <p>{{ field.label_tag }}</p>
+        {{ field }}
+        {% endfor %}
+        {% if messages %}
+        {% for message in messages %}
+        <p></p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        
+        <div class="btnContainer">
+            <button class="RegBtn" type="submit">Войти</button>
+        </div>
+        
+        <div class="UserCondition">
+
+            <a class="UserConditionLink" href="{% url 'signup' %}">Не зарегестрированны?</a>
+
+        </div>
+
+    </form>
+
+    </div>
+
+
+</main>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/navbar/header.js' %}"></script>
+
+
+{% endblock %}.

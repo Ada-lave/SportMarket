@@ -7,7 +7,7 @@ urlpatterns = [
 
     #Подробнее о товаре
 
-    path('<slug:category_slug>/<slug:product_slug>/', productDetail, name='productDetail'),
+    path('product/<slug:category_slug>/<slug:product_slug>/', productDetail, name='productDetail'),
 
     ###Корзина###
     path('cart/', showCart, name='cart'),

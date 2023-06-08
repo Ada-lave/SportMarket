@@ -22,3 +22,30 @@ html,body{
     margin: auto;
 }
 
+@media screen and (max-width: 768px) {
+
+    html,body{
+        height: 100%;
+    }
+    
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    
+    }
+    
+    .page{
+        min-height: 100%;
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 400;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+    .Main{
+        width: 100%;
+        margin: auto;
+    }
+
+}

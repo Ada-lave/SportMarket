@@ -6,14 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/navbar/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar/navbarMobile.css' %}">
   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
     />
 
     <link rel="stylesheet" href="{% static 'css/main/WhoWe/WhoWe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main/WhoWe/WhoWeMobile.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/main/Catalog/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main/Catalog/catalogMobile.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/main/main.css' %}">
 
@@ -23,6 +26,7 @@
     crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer/footerMobile.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +40,7 @@
   <title>Document</title>
 </head>
 <body>
+  
   <header>
     <div class="logo">
             <a href="{% url 'mainpage' %}" class="logoLink">
@@ -50,7 +55,7 @@
 
                 <li class="MenuItem HorizontalMenu">
                     
-                        <a class="btn  dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="btn  dropdown-toggle category" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                           Категории
                         </a>
                       
@@ -62,9 +67,11 @@
 
                 </li>
 
-                <li class="MenuItem"><a href="#">О нас</a></li>
+                <li class="MenuItem MenuItem_WhoWe" id="WhoWe">
+                  <a href="{% url 'mainpage'  %}#PleaseJob">О нас</a>
+                </li>
 
-                <li class="MenuItem"><a href="#">Контакты</a></li>
+                <li class="MenuItem" id="Contats"><a href="#footer">Контакты</a></li>
                 
             </ul>
 
@@ -72,26 +79,101 @@
             <div class="UserMenu">
 
                 <ul class="MenuUserList">
-                    <li class="MenuUserItem"><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></li>
+                    <li class="MenuUserItem">
+                      <img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" >
+                    </li>
+
                     <form action="{% url 'search' %}" method="GET" >
                       <input class="SearchInput" type="text" name="q">
                     </form>
                     
-                    <li class="MenuUserItem"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></li>
-                    <li class="MenuUserItem"><img src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile"></li>
+                    <li class="MenuUserItem">
+                      <a href="{% url 'cart' %}"><img src="{% static 'imgs/navbar/cart.png' %}" alt="" class="cart"></a>
+                    </li>
+
+                    <li class="MenuUserItem ProfileImg">
+                      <img class="UserImg" src="{% static 'imgs/navbar/user.png' %}" alt="" class="profile">
+
+                      <div class="ProfileMenu">
+
+                        
+                        <div class="UserImgContainer">
+                          {% if user.is_authenticated %}
+                          <div class="UserImgBlock"></div>
+                          
+                          <div class="UserExit">
+                            <div class="NameContainer"><p>Владислав Шувалов</p></div>
+                            <a href="{% url 'logout' %}" class="exit">Выход  <img class="exitImg" src= "{% static 'imgs/navbar/exit.png' %}" alt=""></a>
+                          </div>
+
+                          {% else %}
+
+                          <div class="UserImgBlock"></div>
+                          
+                          <div class="UserExit">
+                            <div class="NameContainer"><p>Вы не авторизованны</p></div>
+                            <a href="{% url 'signin' %}" class="exit">Вход  <img class="exitImg" src= "{% static 'imgs/navbar/exit.png' %}" alt=""></a>
+                          </div>
+
+                          {% endif %}
+                        </div>
+
+                        
+                          
+                         
+
+                      </div>
+
+
+                    </li>
                 </ul>
 
             </div>
+    </div>
+
+    <div class="BurgerMenu">
+
+
+      <div class="menu">
+
+        <ul class="MenuList">
+            <li class="MenuItem"><a href="{% url 'mainpage' %}">Главная</a></li>
+
+            <li class="MenuItem HorizontalMenu">
+                
+                    <a class="btn  dropdown-toggle category" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Категории
+                    </a>
+                  
+                    <ul class="dropdown-menu DropMenu" aria-labelledby="dropdownMenuLink">
+                      {% for cat in categories %}
+                      <li><a href="{% url 'category' cat.slug %}">{{ cat.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+
+            </li>
+
+            <li class="MenuItem MenuItem_WhoWe" id="WhoWe">
+              <a href="{% url 'mainpage'  %}#PleaseJob">О нас</a>
+            </li>
+
+            <li class="MenuItem" id="Contats"><a href="#footer">Контакты</a></li>
+            
+        </ul>
+
 
     </div>
+</div>
+          
 
 </header>
   <section>  {% block content %}{% endblock %}</section>
 
-  <footer class="basement">
+  <footer class="basement" id="#basement">
         
+    <div id="#icor"></div>
 
-    <div class="MainBasement">
+    <div class="MainBasement" id="footer">
       <div class="FooterLogoTextMain">
 
         
@@ -147,23 +229,35 @@
 
   
 </footer>
+
+  <script>  
+    
+  
+  </script>
+
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
   <script>
     var store = new Vuex.Store({
       state: {
-
+          totalCost : {{ cart.totalCost }}
       },
-      mutation: {
-        increment(state, quantity){
+      mutations: {
+        increment(state, quantity) {
           state.NumItems += quantity
+      },
+        changeTotalCost(state, newCost){
+          state.totalCost += newCost
         }
+
       }
 
 
     })
 
   </script>
+
   {% block scripts %}{% endblock %}
   
 

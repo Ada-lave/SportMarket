@@ -1,69 +1,81 @@
-.basement{
-    color: white;
-    width: 100%;
-    background-color:black;
-    min-height: 170px;
-    
-}
-
-.MainBasement{
-    width: 1180px;
-    margin: 0 auto;
-}
 
 
-.ContactsGrid{
-    display: flex;
-    justify-content: center;
-}
+@media screen and (min-width: 768px) {
 
-
-.ContactsItem{
+    .basement{
+        color: white;
+        width: 100%;
+        background-color:black;
+        min-height: 170px;
+        
+    }
     
     
+    
+    .MainBasement{
+        width: 1180px;
+        margin: 0 auto;
+    }
+    
+    
+    .ContactsGrid{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    .ContactsItem{
+        
+        
+    }
+    
+    
+    .ContactsItem a{
+        display: flex;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .iconMail{
+        margin-top: -4px;
+        width: 41px;
+        height: 40.81px;
+        background-image:url("/static/imgs/footer/mail.png");
+        margin-right: 20px;
+    }
+    .iconVk{
+        width: 41px;
+        height: 40.81px;
+        background-image:url("/static/imgs/footer/vk.png");
+        margin-right: 20px;
+    }
+    .iconPhone{ 
+        margin-top: -6px;
+        width: 41px;
+        height: 40.81px;
+        background-image:url("/static/imgs/footer/phone.png");
+        margin-right: 20px;
+    }
+    
+    .FooterLogoTextMain{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .ContacsItemCenter{
+    
+        margin-right: 197px;
+        margin-left: 197px;
+    }
+    
+    .LogoCenter img{
+        margin-left: 35px;
+        margin-bottom: 5px;
+        margin-top: 9px;
+    }
+
+
 }
 
 
-.ContactsItem a{
-    display: flex;
-    color: white;
-    text-decoration: none;
-}
 
-.iconMail{
-    margin-top: -4px;
-    width: 41px;
-    height: 40.81px;
-    background-image:url("/static/imgs/footer/mail.png");
-    margin-right: 20px;
-}
-.iconVk{
-    width: 41px;
-    height: 40.81px;
-    background-image:url("/static/imgs/footer/vk.png");
-    margin-right: 20px;
-}
-.iconPhone{ 
-    margin-top: -6px;
-    width: 41px;
-    height: 40.81px;
-    background-image:url("/static/imgs/footer/phone.png");
-    margin-right: 20px;
-}
-
-.FooterLogoTextMain{
-    display: flex;
-    justify-content: center;
-}
-
-.ContacsItemCenter{
-
-    margin-right: 197px;
-    margin-left: 197px;
-}
-
-.LogoCenter img{
-    margin-left: 35px;
-    margin-bottom: 5px;
-    margin-top: 9px;
-}

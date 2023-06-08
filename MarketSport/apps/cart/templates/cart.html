@@ -1,149 +1,187 @@
 {% extends 'base.html' %}
-{% block title %}Cart{% endblock %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart/cart.css' %}">
+{% endblock %}
 
 
 {% block content %}
-<div id="cartapp">
-    <h1 class="title">Cart</h1>
-    {% if cart %}
-    <div class="table">
-        <table class="table">
-            <thead>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th></th>
-            </thead>
-            <tbody>
-                
-                <tr v-for="product in products">
-                    <td>[[ product.title ]]</td>
-                    <td>
-                        <button v-on:click="DecrimentQuantity([[ product.id ]])">- </button> 
-                        [[ product.quantity ]]
-                        <button v-on:click="incrementQuantity([[ product.id ]], [[ product.quantity]] )">+</button>
-                    </td>
-                    <td>[[ product.price ]]</td>
 
-                    <td><button v-on:click="RemoveProduct([[ product.id ]])">Delete</button></td>
-                </tr>
+    <main id="cart">
+
+        <div class="Cart" >
+
+            <div class="CartHeader">Корзина товаров</div>
+
+                
+                <div class="line"></div>
+                <div class="lineV"></div>
+
+            <div>
+                
+            </div>
+
+            <div class="CartList" >
+
+
+                <div class="Card" v-for="product in products">
+
+                   
+
+                    <div class="CardMain">
+                        <a href="#" class="CardLink">
+
+                            <div class="CardimgBlock">
+
+                                <img class="imgC" src= '' alt="">
+
+                            </div>
+
+                            <div class="Information">
+
+                                <div class="CardHeadder">[[ product.title ]]</div>
+
+                                <div class="CardSize">[[ product.size ]]</div>
+
+                               <div class="CardColorMain">
+                                <span>Цвет</span>
+                                <div class="CardColor" style="background-color: [[product.color]];"></div>
+
+                               </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+                    
+
+                    <div class="CardTool">
+
+
+                        <div class="ProductValue">
+
+                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity(product.id, product.quantity, product.price )">+</div>
+                            <span>[[ product.quantity ]] шт</span>
+                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity(product.id, product.quantity, product.price)">-</div>
+
+
+                        </div>
+
+                        <p class="ProductPrice"> ₽ [[ product.price ]]</p>
+
+                    </div>
+
+
+                    <div class="RemoveCard"><img src="{% static 'imgs/cart/trash.png' %}"  v-on:click="deleteFromCart([[ product.id ]])" alt=""></div>
+
+                </div>
+
+                 
+
+
+                </div>
+
+
+
+            </div>
+
+                
 
                 
                 
             
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>Total cost: </td>
-                    <td></td>
-                    <td></td>
-                    <td>{{ cart.TotalPrice }}</td>
-                </tr>
-            </tfoot>
-        </table>
-        
-    </div>
-        
-        <form v-on:submit.prevent="submitForm()">
-            <div class="field">
-                <div class="control">
-                    <label>First name</label>
-                    <input type="text" name="first_name" v-model="first_name">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <label>Last name</label>
-                    <input type="text" name="last_name" v-model="last_name">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <label>Email</label>
-                    <input type="text" name="email" v-model="email">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <label>address</label>
-                    <input type="text" name="first_name" v-model="address">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <label>zipcode</label>
-                    <input type="text" name="zipcode" v-model="zipcode">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <label>Place</label>
-                    <input type="text" name="place" v-model="place">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <button class="button is-primary">Check out</button>
-                </div>
-            </div>
-        </form>
+            
 
-    {% else %}
-        <p>Cart is empty</p>
-    {% endif %}
-</div>
+
+
+        </div>
+
+        <div class="PlaceOrder">
+            <p class="Finally">Товары на [[ totalCost ]] ₽</p>
+            <p class="ValueProduct">Товары,шт</p>
+            <p class="ValueProduct">{{ user.get_full_name }}</p>
+            <p class="ValueProduct">{{ user.email }}</p>
+            <p class="ValueProduct">{{ user.profile.mobile }}</p>
+            <p class="Date">{{ cart.date }}</p>
+
+            <form class="FormList" action="">
+
+                <p class="FormListItem">Область</p>
+                <input type="text" class="place" v-model="region">
+                <p class="FormListItem" >Город</p>
+                <input type="text" class="place" v-model="city">
+                <p class="FormListItem" >Улица</p>
+                <input type="text" class="place" v-model="street">
+                <p class="FormListItem" >Почтовый индекс</p>
+                <input type="text" class="place" v-model="index">
+
+            </form>
+
+            
+            {% if user.is_authenticated %}
+
+            <div class="center">
+                <button class="PlaceBtn" v-on:click="createOrder()" type="submit">Оформить заказ</button>
+            </div>
+
+            {% else %}
+
+            <div class="center">
+                <button class="PlaceBtn"type="submit">Перед оформлением заказ авторизуйтесь</button>
+            </div>
+
+            {% endif %}
+
+        </div>
+        
+
+        
+    </main>
+
+
+
+
 {% endblock %}
 
-
 {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="{% static 'js/navbar/header.js' %}"></script>
+
 <script>
-    var productapp = new Vue({
-        el:'#cartapp',
+
+    var app = new Vue({
+        el: '#cart',
         delimiters: ['[[',']]'],
         store: store,
         data() {
             return {
-                first_name: '',
-                last_name: '',
-                email: "",
-                address: "",
-                zipcode: "",
-                place: "",
-                products: {{productstr|safe}},
-                coupon_value: 0,
-                coupon_code: ''
-
+                region: "",
+                city: "",
+                street: "",
+                index: "",
+                products: {{ productstr|safe }}
             }
+        },
+
+        mounted(){
+            console.log("work")
         },
         computed: {
-            totalCostWithCoupon: function(){
-                if (this.coupon_value>0){
-                    return store.state.totalCost * (parseInt(this.coupon_value)/100)
-                }
+            totalCost: function(){
+                return store.state.totalCost
             }
         },
 
+        methods:{
 
-        mounted() {
-            console.log('Mounted')
-            console.log(typeof(this.products[0]['id']))
-        },
-        methods: {
-
-            submitForm() {
-                
-
+            createOrder(){
+                console.log('order')
                 let data = {
-                    'first_name': this.first_name,
-                    'last_name': this.last_name,
-                    'email': this.email,
-                    'address': this.address,
-                    'zipcode': this.zipcode,
-                    'place': this.place
+                    'address': this.region + " " + this.city + " " + this.street + " " + this.index
                 }
 
-
-                fetch('/api/checkout/',{
+                fetch('/api/order',{
                     method: 'POST',
                     headers: {
                         'Content-Type':'application/json',
@@ -152,27 +190,22 @@
                     credentials: 'same-origin',
                     body: JSON.stringify(data)
                 })
+
                 .then((response) => {
                     console.log(response)
                     
-                    window.location.href('/')
                     
                 })
-                
-                .catch(function error(){
-                    console.log('Error 2')
-                })
+
+                setTimeout(function(){
+                    location.reload();
+                      }, 1000);
             },
 
-            DecrimentQuantity(prod_id, qua) {
-            
+            deleteFromCart(prod_id){
+                var data = {'id': parseInt(prod_id)}
 
-                var data = {'id':parseInt(prod_id), 'update':'inc', 'quantity':qua-1}
-
-                store.commit('increment',-1)
-                console.log(parseInt(prod_id))
-
-                fetch('/api/dec/',{
+                fetch('/api/del',{
                     method: 'POST',
                     headers: {
                         'Content-Type':'application/json',
@@ -181,31 +214,22 @@
                     credentials: 'same-origin',
                     body: JSON.stringify(data)
                 })
-                .then((response) => {
-                    console.log(response)
-                    for (let i = 0; i<this.products.length; i++){
-                        
-                        
+                .then((response)=>{
+                    this.products = this.products.filter(product => product.id !== prod_id)
+                })
 
-                        if (this.products[i].id == prod_id){
-    
-                            this.products[i].quantity--
-                        }
-                    }
-                })
-                
-                .catch(function error(){
-                    console.log('Error 2')
-                })
+                setTimeout(function(){
+                    location.reload();
+                      }, 300);
             },
-            incrementQuantity(prod_id, qua) {
             
 
-                var data = {'id':parseInt(prod_id), 'update':true, 'quantity':qua+1}
+            incrementQuantity(prod_id, qua, price) {
+                var data = {'id':parseInt(prod_id)}
+                
 
-                store.commit('increment',1)
-                console.log(this.products[0].quantity)
-                fetch('/api/inc/',{
+
+                fetch('/api/inc',{
                     method: 'POST',
                     headers: {
                         'Content-Type':'application/json',
@@ -214,28 +238,24 @@
                     credentials: 'same-origin',
                     body: JSON.stringify(data)
                 })
-                .then((response) => {
-                    console.log(response)
+                .then((response)=>{
                     for (let i = 0; i<this.products.length; i++){
-                        
+                        let product = this.products[i]
                         
 
                         if (this.products[i].id == prod_id){
-    
+                            console.log('inc')
                             this.products[i].quantity++
                         }
                     }
-                })
-                
-                .catch(function error(){
-                    console.log('Error 2')
+                    
+                    store.commit('changeTotalCost', parseFloat(price))
                 })
             },
-            RemoveProduct(prod_id){
 
-                var data = {'product_id':parseInt(prod_id)}
-
-                fetch('/api/RemoveCart/',{
+            decrementQuantity(prod_id, qua, price){
+                let data = {'id':parseInt(prod_id)}
+                fetch('/api/dec',{
                     method: 'POST',
                     headers: {
                         'Content-Type':'application/json',
@@ -244,21 +264,39 @@
                     credentials: 'same-origin',
                     body: JSON.stringify(data)
                 })
-                .then((response) => {
-                    console.log(response)
-                    console.log(this.products[0].title)
+                .then((response)=>{
                     for (let i = 0; i<this.products.length; i++){
-                        if (this.products[i].id==parseInt(prod_id)){
-                            delete this.products[i]
+                        let product = this.products[i]
+                        
+
+                        if (this.products[i].id == prod_id){
+
+                            this.products[i].quantity--
                         }
                     }
-                })
-                
-                .catch(function error(){
-                    console.log('Error 2')
+                    store.commit('changeTotalCost', -parseFloat(price))
                 })
             }
-        },
+        }
     })
+
 </script>
+
+<script>
+    imgs = document.getElementsByClassName('imgC')
+    urls = "{{productImgs|escapejs}}"
+    urls_m = urls.split("")
+    delete urls_m[0]
+    delete urls_m[1]
+    delete urls_m[urls_m.length-1]
+    delete urls_m[urls_m.length-2]
+    str = urls_m.join('')
+    urls_normalise = str.split("', '")
+
+    for (let i = 0; i< urls_normalise.length; i++)
+    {
+        imgs[i].src = urls_normalise[i]
+    }
+</script>
+
 {% endblock %}
