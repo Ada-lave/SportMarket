@@ -49,7 +49,7 @@ class Cart(object):
                              'price': price, 'size': size, 'color': color, 'img': img}
         
 
-        if update_q == False and id in self.cart:
+        elif update_q == False and id in self.cart:
             self.cart[id]['quantity'] += 1
 
         self.save()

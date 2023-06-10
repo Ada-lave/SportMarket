@@ -165,7 +165,8 @@
     
     
     
-    .ValueBackgroundProduct{
+    .ValueBackgroundProduct {
+        border: none;
         user-select: none;
         cursor: pointer;
         width: 26px;
@@ -227,7 +228,7 @@
         margin-left: 80px;
         margin-top: 50px;
         min-width: 339px;
-        max-height: 600px;
+        height: 500px;
         background: #FFFFFF;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
@@ -519,6 +520,7 @@
     
     
     .ValueBackgroundProduct{
+        border: none;
         user-select: none;
         cursor: pointer;
         width: 26px;

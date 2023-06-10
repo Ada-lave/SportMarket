@@ -29,6 +29,12 @@
         <p> {{ field.label_tag }} </p>
         {{ field }}
         {% endfor %}
+
+        {% if messages %}
+        {% for message in messages %}
+        <p style="color: brown;">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
         
         <div class="btnContainer">
             <button class="RegBtn" type="submit">Регистрация</button>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block style %}
+{% load static %}
+{% block styles %}
 
 <link rel="stylesheet" href="{% static 'css/main/Catalog/catalog.css' %}">
 
@@ -11,9 +11,133 @@
 
 {% block content %}
 
+<div class="CatalogMain" >
+ 
+    <div class="catalog">
+
+        <div class="CatalogHeading">
+
+             
+             {% if error %}
+             <h3> Нам не удалось найти ваш товар </h3>
+             {% else %}
+             <h3>Наши товары</h3>
+             {% endif %}
+             
+        </div>
+    
+
+        <div class="CardGrid">
+
+        {% for product in products %}
+            
+            
+
+                <div class="CardArea"> 
+   
+                    <a href="{% url 'productDetail' product.category.slug product.slug %}">
+
+                        <div class="MainCardItem">
+
+                            
+                                <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                            
+    
+                            
+                        </div>
+    
+                        <div class="discharge1">
+    
+                            <p>Новинка</p>
+    
+                        </div>
+    
+                        <div class="ColorValue">
+    
+                            <p class="ColorValueText">2 цвета</p>
+    
+                        </div>
+                        
+    
+                        <div class="TextCard">
+    
+                            <p class="NameCard">{{ product.title }}</p>
+    
+                            <p class="PriceCard">₽ {{ product.price }}</p>
+    
+                            
+    
+                        </div>
+
+
+                    </a>
+
+                </div>
+
+
+
+          {% endfor %}
+          
+
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Page navigation example" style="max-width: 100%; margin-bottom: 20px">
+    <ul class="pagination justify-content-center">
+    {% if products.has_previous %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ products.previous_page_number }}">Предыдущая</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Предыдущая</a>
+      </li>
+    {% endif %}
+
+    {% if products.number|add:'-4' > 1 %}
+        <li class="page-item"><a class="page-link" href="?page={{ products.number|add:'-5' }}">&hellip;</a></li>
+    {% endif %}
+
+    {% for i in products.paginator.page_range %}
+        {% if products.number == i %}
+            <li class="page-item active" aria-current="page">
+          <span class="page-link">
+            {{ i }}
+            <span class="sr-only"></span>
+          </span>
+        </li>
+        {% elif i > products.number|add:'-5' and i < products.number|add:'5' %}
+             <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if products.paginator.num_pages > products.number|add:'4' %}
+       <li class="page-item"><a class="page-link" href="?page={{ products.number|add:'5' }}">&hellip;</a></li>
+    {% endif %}
+
+    {% if products.has_next %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ products.next_page_number }}">Следующая</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Следующая</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+
 {% endblock %}
 
 
 {% block scripts %}
+
+<script src="{% static 'js/navbar/header.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 {% endblock %}

@@ -12,104 +12,10 @@
 <body>
 {% block content %}
 
-    <div class="slider">
-        
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src= "{% static 'imgs/slider/slide1.jpg' %}"  class="d-block w-100" alt="...">
-            </div>
-            
-            <div class="carousel-item">
-                
-                <img src="{% static 'imgs/slider/slide2.jpg' %}"  class="d-block w-100" alt="...">
-            </div>
-            
-            
-            <div class="carousel-item">
-                
-                <img src="{% static 'imgs/slider/slide3.jpg' %}" class="d-block w-100" alt="...">
-            </div>
-            
-            
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            
-
-            
-            
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <div id="test"></div>
-            
-            <span class="visually-hidden">Next</span>
-            
-            </button>
-            
-        </div>
-        
-            
-
-    </div>
+    
 
     
-    <div id="main-info" class="Main">
-        
-        <div id="PleaseJob" class="WhoWe">
-
-
-            
-            
-         
-
-            <div  class="DescriptionBlock" >
-                
-                <div class= "WhoWeText" >
-
-
-                <h2  class="WhoWeHeading">
-                    Кто мы такие?
-                </h2>
-
-                        
-
-
-                        <h3 class="WhoWeMainText" id="WhoWeId">
-                        
-                            <p> 
-                                Магазин Альпака - это специализированный спортивный магазин, 
-                                который предлагает широкий ассортимент товаров для активного отдыха и занятий спортом.
     
-                                У нас вы найдете все необходимое для занятий горным туризмом, альпинизмом, скалолазанием, 
-                                пеших прогулок и бега!
-                            </p>
-                            
-                            
-                          
-
-                        </h3>
-
-                </div>
-
-
-                <div class="WhoWeImg">
-
-                    <img src="{% static 'imgs/whoWe/man.png' %}" alt="" class="DescriptionPhoto">
-
-                  </div>
-
-            </div>
-
-        </div>
-
 
 
         <div class="CatalogMain" >
@@ -184,8 +90,6 @@
             </div>
         </div>
         
-    </div>  
-</div>
 
 <nav aria-label="Page navigation example" style="max-width: 100%; margin-bottom: 20px">
     <ul class="pagination justify-content-center">
@@ -208,7 +112,7 @@
             <li class="page-item active" aria-current="page">
           <span class="page-link">
             {{ i }}
-            <span class="sr-only"></span>
+            <span class="sr-only">Текущая</span>
           </span>
         </li>
         {% elif i > products.number|add:'-5' and i < products.number|add:'5' %}

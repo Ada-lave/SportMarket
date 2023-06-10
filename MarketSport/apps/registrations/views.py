@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import Profile
 from django.contrib.auth.models import User
 from .forms  import UserRegistrationForm, LoginUserForm
+import random
+from django.db import IntegrityError
 
 
 
@@ -13,18 +15,20 @@ def registrationUser(request):
         if form.is_valid():
             print(form.cleaned_data['username'])
             if form.cleaned_data['password1'] == form.cleaned_data['password2']:
-                user = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['first_name']\
-                    ,last_name=form.cleaned_data['last_name'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
-            
-            
-                
-            
+                try:
 
-            profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'))
-            profile.save()
+                    user = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['first_name']\
+                        ,last_name=form.cleaned_data['last_name'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
 
-            login(request, user)
-            redirect('mainpage')
+                    profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'), img=f'ProfileImages/{random.randint(1,4)}.png')
+                    profile.save()
+
+                    login(request, user)
+                    redirect('mainpage')
+                except IntegrityError:
+                    messages.error(request, 'Имя пользователя уже занято')
+            else:
+                messages.error(request, 'Убедитесь в том что пароли одинаковы')
     else:
         form = UserRegistrationForm()
     return render(request, 'reg.html', {'form':form})
