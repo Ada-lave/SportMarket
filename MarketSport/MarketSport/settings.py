@@ -35,8 +35,11 @@ CART_SESSION_ID = 'cart'
 
 
 # Email sender
-EMAIL_HOST = 'skvmrelay.netangels.ru'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mega.kefi36@gmail.com'
+EMAIL_HOST_PASSWORD = 'ypondlgixhwtyowd'
 EMAIL_PORT = 25
+EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # Application definition
 

@@ -1,7 +1,9 @@
 from apps.cart.cart import Cart
 from apps.order.models import *
 from apps.store.models import Product
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.utils.html import strip_tags
+from django.template.loader import get_template
 from django.conf import settings
 
 
@@ -17,10 +19,22 @@ def checkout(request,  address):
         product = Product.objects.get(pk=item['id'])
         OrderItem.objects.create(order=order, product=product, price=item['price'], quantity=item['quantity'])
     
-    text = f"Ваш заказ оформлен\nОбщая стоимость {cart.totalCost()}\nТовары которые вы выбрали:\n"
+
+    template = get_template('index1.html')
+
+    prod = []
+    tcost = 0
+    print(cart.totalCost())
     for item in cart:
-        text += f"{item['title']} {item['quantity']}шт\n"
-    send_mail(f"{request.user.get_full_name()} ваш заказ успешно оформлен" ,f"{text}\n Вам в скором времени перезвонить менеджер что бы подтвердить ваш заказ.", recipient_list=[request.user.email])
+        tcost += int(item['price'] * int(item['quantity']))
+        prod.append({'price':item['price'], 'title':item['title'], 'quantity':item['quantity']})
     
+    products = {"products":prod, 'tcost':tcost}
+
+    content = template.render(products)
+    
+    email = EmailMessage(subject='Ваш чек от сайта earth-market.ru', body=content, to=[request.user.email])
+    email.content_subtype = 'html'
+    email.send()
         
     return order.id
