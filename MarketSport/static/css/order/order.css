@@ -1,0 +1,118 @@
+
+body,html{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    bottom: 0;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color:#D2E740;
+}
+
+
+ .MainWrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 900px;
+    border-radius: 16px;
+    margin: 0 auto;
+
+ }
+
+
+ .LogoWrapper{
+    display: flex;
+    justify-content: center;
+ }
+
+ .LogoWrapper img{
+    width: 60px;
+    height: 60px;
+ }
+
+
+ .MainChek{
+    display: flex;
+    justify-content: center;
+ }
+
+
+ .Chek{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 29px;
+    min-height: 554px;
+    background-color: #FFF;
+    min-width: 510px;
+
+ }
+
+
+ .HeaderParrent{
+    text-align: center;
+    font-size: 28px;
+ }
+ .HeaderParrent hr{
+    margin-top: 39px;
+    margin-bottom: 66px;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-width: 0 0 5px;
+	border-style: solid;
+	border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1" width="8" height="4"><circle fill="gray" cx="1" cy="0.5" r="0.5"></circle></svg>') 0 0 100% repeat;
+	background-position: 50%;
+	box-sizing: border-box;
+	color: #acacac;
+ }
+
+
+ .ProductList{
+    margin-top: 44px;
+    margin-left: 2px;
+ }
+
+ .PlroductListItem{
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+ }
+
+.LineDivision hr{
+    margin-top: 13px;
+    background: none;
+    width: 232px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    border-top: 2px dotted #ddd;
+}
+
+
+.EndProductList{
+    margin-top: 50px;
+}
+
+.resul{
+    text-align: center;
+    font-size: 32px;
+}
+
+.Return{
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.Return a{
+    text-decoration: none;
+    color: blue;
+}

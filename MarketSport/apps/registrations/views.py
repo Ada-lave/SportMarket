@@ -4,6 +4,7 @@ from django.contrib import messages
 from .models import Profile
 from django.contrib.auth.models import User
 from .forms  import UserRegistrationForm, LoginUserForm
+import random
 
 
 
@@ -20,7 +21,7 @@ def registrationUser(request):
                 
             
 
-            profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'))
+            profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'), img=f'ProfileImages/{random.randint(1,4)}.png')
             profile.save()
 
             login(request, user)

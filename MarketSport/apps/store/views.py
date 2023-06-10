@@ -19,6 +19,19 @@ def TestDate(request):
     return render(request, 'main.html', context)
 
 
+def paginationPage(request, page):
+    products = Product.objects.all()
+
+    paginator = Paginator(products, 9)
+    
+    page_obj = paginator.get_page(page)
+
+
+    context = {
+        'products': page_obj
+    }
+    return render(request, 'pagination.html', context)
+
 def searhInMainPage(request):
     qer = request.GET.get('q')
     products = Product.objects.filter(title__contains=qer)
