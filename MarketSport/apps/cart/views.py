@@ -8,7 +8,7 @@ def showCart(request):
     productsImgs = []
     for item in cart:
         product = item['product']
-        productsImgs.append(Product.objects.get(id=product.id).image.url)
+        productsImgs.append(Product.objects.get(id=product.id).image1.url)
         
         b = {'id':product.id, 'title':product.title, 'price':product.price,'quantity':item['quantity'],\
               'color':item['color'], 'size': item['size'], 'img':item['img']}

@@ -40,7 +40,7 @@ class Cart(object):
         id = str(product.id)
         title = product.title
         price = product.price
-        img = product.image.url
+        img = product.image1.url
         size = product.size
         color = product.color
 
