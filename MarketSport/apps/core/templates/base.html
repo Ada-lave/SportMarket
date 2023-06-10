@@ -92,8 +92,8 @@
             <div class="UserMenu">
 
                 <ul class="MenuUserList">
-                    <li class="MenuUserItem">
-                      <img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" >
+                    <li class="MenuUserItem SearchImg">
+                      <p><img class="search" src="{% static 'imgs/navbar/search.png' %}" alt="" ></p>
                     </li>
 
                     <form action="{% url 'search' %}" method="GET" >
@@ -158,7 +158,7 @@
           </form>
         
         </div>
-        <div class="BurgerItem"><a href="{% url 'mainpage' %}">Главная</a></div>
+        <div class="BurgerItem ClodedMenu"><a href="{% url 'mainpage' %}">Главная</a></div>
         <div class="Category BurgerItem">Категории</div>
             
             <ul class="CategoryList">
@@ -169,8 +169,8 @@
             
             
 
-            <div class="BurgerItem"><a href="{% url 'mainpage'  %}#PleaseJob">О нас</a></div>
-            <div class="BurgerItem"><a href="#footer">Контакты</a></div>
+            <div class="BurgerItem ClodedMenu"><a href="{% url 'mainpage'  %}#PleaseJob">О нас</a></div>
+            <div class="BurgerItem ClodedMenu"><a href="#footer">Контакты</a></div>
             <div class="BurgerItem"><a href="{% url 'cart' %}">Корзина</a></div>
             <div class="BurgerItem name"><a href="#">Коновалов Арсений</a></div>
             <div class="BurgerItem exit_login"><a href="#">Войти</a></div>

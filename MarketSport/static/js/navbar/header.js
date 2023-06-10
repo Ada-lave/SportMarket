@@ -114,3 +114,25 @@ Category.addEventListener('click',()=>{
 
 
 
+let ClosedMenuItem = document.querySelectorAll('.ClodedMenu')
+
+for(let i = 0; i < ClosedMenuItem.length; i ++ ){
+
+  ClosedMenuItem[i].addEventListener('click',()=>{
+
+    BurgerWrapper.classList.toggle('BurgerWrapperActiv');
+    CategoryList.classList.remove('CategoryListActive')
+    for(let i = 0; i < text.length; i++){
+      text[i].classList.toggle('BurgerItemActive');
+    }
+  
+    for(let i = 0; i < TextCategory.length; i++){
+      TextCategory[i].classList.remove('CategoryTextItemActiv');
+    }
+
+
+  })
+
+}
+
+

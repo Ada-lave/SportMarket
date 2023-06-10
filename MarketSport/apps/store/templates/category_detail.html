@@ -11,11 +11,11 @@
         {% if error %}
         <h3> Нам не удалось найти ваш товар </h3>
         {% else %}
-        <h2 class="ProductCategoryHeader">Товары в категории <span style="text-transform: lowercase; color: #58D0D8;">{{ categoryName }}</span> </h2>
+        <h2 class="ProductCategoryHeader">Товары в категории <span style="text-transform: lowercase; color: #58D0D8;margin-top: -30px;">{{ categoryName }}</span> </h2>
         {% endif %}
     
 
-        <div class="CardGrid">
+        <div class="CardGrid CategoryGrid"">
 
         {% for product in products %}
         <div class="CardArea"> 
