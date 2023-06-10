@@ -20,7 +20,7 @@ def checkout(request,  address):
     text = f"Ваш заказ оформлен\nОбщая стоимость {cart.totalCost()}\nТовары которые вы выбрали:\n"
     for item in cart:
         text += f"{item['title']} {item['quantity']}шт\n"
-    send_mail(f"{request.user.get_full_name()} ваш заказ успешно оформлен" ,f"{text}\n Вам в скором времени перезвонить менеджер что бы подтвердить ваш заказ.",settings.EMAIL_HOST_USER, [request.user.email])
+    send_mail(f"{request.user.get_full_name()} ваш заказ успешно оформлен" ,f"{text}\n Вам в скором времени перезвонить менеджер что бы подтвердить ваш заказ.", recipient_list=[request.user.email])
     
         
     return order.id
