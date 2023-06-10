@@ -24,7 +24,7 @@ def registrationUser(request):
                     profile.save()
 
                     login(request, user)
-                    redirect('mainpage')
+                    return redirect('mainpage')
                 except IntegrityError:
                     messages.error(request, 'Имя пользователя уже занято')
             else:

@@ -38,22 +38,22 @@
 
 
                 <div class="SliderListItem">
-                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="SliderImg">
+                    <img src="{{ product.image1.url }}" alt="" class="SliderImg">
                     <div class="Line hidden"></div>
                 </div>
 
                 <div class="SliderListItem">
-                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide2.jpg' %}" alt="" class="SliderImg">
+                    <img src="{{ product.image2.url }}" alt="" class="SliderImg">
                     <div class="Line hidden"></div>
                 </div>
 
                 <div class="SliderListItem">
-                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide3.jpg' %}" alt="" class="SliderImg">
+                    <img src="{{ product.image3.url }}" alt="" class="SliderImg">
                     <div class="Line hidden"></div>
                 </div>
 
                 <div class="SliderListItem">
-                    <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide4.jpg' %}" alt="" class="SliderImg">
+                    <img src="{{ product.image4.url }}" alt="" class="SliderImg">
                     <div class="Line hidden"></div>
                 </div>
 
@@ -62,7 +62,7 @@
 
             <div class="MainImgWrapper">
 
-                <img src="{% static 'imgs/moreAboutProduct/SliderAbout/slide1.jpg' %}" alt="" class="MainImg">
+                <img src="{{ product.image1 }}" alt="" class="MainImg">
 
             </div>
         

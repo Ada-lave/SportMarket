@@ -141,21 +141,22 @@
                                 <div class="MainCardItem">
         
                                     
-                                        <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
+                                        <img src="{{ product.image1.url }}" alt="Здесь был товар" class="CardImg">
                                     
             
                                     
                                 </div>
-            
+                                {% if product.newOrOldProduct %}
                                 <div class="discharge1">
             
                                     <p>Новинка</p>
             
                                 </div>
+                                {% endif %}
             
                                 <div class="ColorValue">
             
-                                    <p class="ColorValueText">2 цвета</p>
+                                    <p class="ColorValueText">1 цвет</p>
             
                                 </div>
                                 

@@ -33,7 +33,10 @@ class Product(models.Model):
     descriptions = models.TextField(
         blank=True, verbose_name='Описание')
     price = models.FloatField(verbose_name='Цена')
-    image = models.ImageField(blank=True)
+    image1 = models.ImageField(blank=True)
+    image2 = models.ImageField(blank=True)
+    image3 = models.ImageField(blank=True)
+    image4 = models.ImageField(blank=True)
     avalible = models.BooleanField(
         default=True, verbose_name='В наличии')
     material = models.CharField(
@@ -69,14 +72,15 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         file_name = self.category.title
-        self.thumbnail = self.resizeImage(self.image)
 
         
-        if self.image.name:
+        if self.image1.name:
             print('image ready')
         else:
-            self.image.name = file_name + "/" + self.title + ".png"
-            self.thumbnail.name = file_name + "/" +  "Thumb" + ".png"
+            self.image1.name = file_name + "/" + self.title + ".png"
+            self.image2.name = file_name + "/" + self.title + ".png"
+            self.image3.name = file_name + "/" + self.title + ".png"
+            self.image4.name = file_name + "/" + self.title + ".png"
 
         super(Product, self).save(*args, **kwargs)
 
