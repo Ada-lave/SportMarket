@@ -11,9 +11,11 @@
     <main id="cart">
 
         <div class="Cart" >
-
+            {% if productstr %}
             <div class="CartHeader">Корзина товаров</div>
-
+            {% else %}
+            <div class="CartHeader">Корзина товаров</div>
+            {% endif %}
                 
                 <div class="line"></div>
                 <div class="lineV"></div>
@@ -61,9 +63,9 @@
 
                         <div class="ProductValue">
 
-                            <div class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity(product.id, product.quantity, product.price )">+</div>
+                            <button class="AddProduct ValueBackgroundProduct" v-on:click="incrementQuantity(product.id, product.quantity, product.price )">+</button>
                             <span>[[ product.quantity ]] шт</span>
-                            <div class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity(product.id, product.quantity, product.price)">-</div>
+                            <button class="RemoveProduct ValueBackgroundProduct" v-on:click="decrementQuantity(product.id, product.quantity, product.price)" v-bind:disabled="product.quantity < 2">-</button>
 
 
                         </div>
