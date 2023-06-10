@@ -20,7 +20,7 @@ def registrationUser(request):
                     user = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['first_name']\
                         ,last_name=form.cleaned_data['last_name'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
 
-                    profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'), img=f'ProfileImages/{random.randint(1,4)}.png')
+                    profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'), img=f'ProfileImages/{random.randint(1,5)}.png')
                     profile.save()
 
                     login(request, user)

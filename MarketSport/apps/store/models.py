@@ -74,9 +74,8 @@ class Product(models.Model):
         file_name = self.category.title
 
         
-        if self.image1.name:
-            print('image ready')
-        else:
+        if file_name not in self.image1.name:
+            
             self.image1.name = file_name + "/" + self.title + ".png"
             self.image2.name = file_name + "/" + self.title + ".png"
             self.image3.name = file_name + "/" + self.title + ".png"

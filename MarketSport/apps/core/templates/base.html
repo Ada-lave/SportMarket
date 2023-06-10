@@ -130,13 +130,13 @@
                         
                         <div class="UserImgContainer">
                           {% if user.is_authenticated %}
-                          <div class="UserImgBlock">
+                          
                             {% if user.profile.img.url %}
-                            <img src="{{ user.profile.img.url }}">
+                            <img class="UserImgBlock" src="{{ user.profile.img.url }}">
                             {% else %}
                             <img>
                             {% endif %}
-                          </div>
+                          
                           
                           <div class="UserExit">
                             <div class="NameContainer"><p>{{ user.get_full_name }}</p></div>
