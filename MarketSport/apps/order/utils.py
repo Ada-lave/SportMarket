@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 from django.utils.html import strip_tags
 from django.template.loader import get_template
 from django.conf import settings
+from django.contrib import messages
 
 
 def checkout(request,  address):
@@ -36,5 +37,7 @@ def checkout(request,  address):
     email = EmailMessage(subject='Ваш чек от сайта earth-market.ru', body=content, to=[request.user.email])
     email.content_subtype = 'html'
     email.send()
+
+    messages.success(request, "Ваш заказ успешно оформлен!")
         
     return order.id

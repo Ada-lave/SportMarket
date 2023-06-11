@@ -11,11 +11,18 @@
     <main id="cart">
 
         <div class="Cart" >
+            {% if messages %}
+            {% for message in messages %}
+            <div class="CartHeader">{{ message }}</div>
+            {% endfor %}
+            {% else %}
             {% if productstr %}
             <div class="CartHeader">Корзина товаров</div>
             {% else %}
             <div class="CartHeader">Корзина товаров пуста</div>
             {% endif %}
+            {% endif %}
+            
                 
                 <div class="line"></div>
                 <div class="lineV"></div>
@@ -87,6 +94,7 @@
 
 
             </div>
+            
 
                 
 
