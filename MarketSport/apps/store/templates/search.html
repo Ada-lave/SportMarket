@@ -33,46 +33,47 @@
             
             
 
-                <div class="CardArea"> 
-   
-                    <a href="{% url 'productDetail' product.category.slug product.slug %}">
+        <div class="CardArea"> 
+           
+            <a href="{% url 'productDetail' product.category.slug product.slug %}">
 
-                        <div class="MainCardItem">
+                <div class="MainCardItem">
 
-                            
-                                <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
-                            
-    
-                            
-                        </div>
-    
-                        <div class="discharge1">
-    
-                            <p>Новинка</p>
-    
-                        </div>
-    
-                        <div class="ColorValue">
-    
-                            <p class="ColorValueText">2 цвета</p>
-    
-                        </div>
-                        
-    
-                        <div class="TextCard">
-    
-                            <p class="NameCard">{{ product.title }}</p>
-    
-                            <p class="PriceCard">₽ {{ product.price }}</p>
-    
-                            
-    
-                        </div>
+                    
+                        <img src="{{ product.image1.url }}" alt="Здесь был товар" class="CardImg">
+                    
 
+                    
+                </div>
+                {% if product.newOrOldProduct %}
+                <div class="discharge1">
 
-                    </a>
+                    <p>Новинка</p>
 
                 </div>
+                {% endif %}
+
+                <div class="ColorValue">
+
+                    <p class="ColorValueText">1 цвет</p>
+
+                </div>
+                
+
+                <div class="TextCard">
+
+                    <p class="NameCard">{{ product.title }}</p>
+
+                    <p class="PriceCard">₽ {{ product.price }}</p>
+
+                    <p class="NewPriceCard hidden">₽ 2400.00</p>
+
+                </div>
+
+
+            </a>
+
+        </div>
 
 
 

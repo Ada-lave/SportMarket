@@ -20,44 +20,45 @@
         {% for product in products %}
         <div class="CardArea"> 
            
-            <a href="{% url 'productDetail' product.category.slug product.slug %}">
+          <a href="{% url 'productDetail' product.category.slug product.slug %}">
 
-                <div class="MainCardItem">
+              <div class="MainCardItem">
 
-                    
-                        <img src="{{ product.image.url }}" alt="Здесь был товар" class="CardImg">
-                    
+                  
+                      <img src="{{ product.image1.url }}" alt="Здесь был товар" class="CardImg">
+                  
 
-                    
-                </div>
+                  
+              </div>
+              {% if product.newOrOldProduct %}
+              <div class="discharge1">
 
-                <div class="discharge1">
+                  <p>Новинка</p>
 
-                    <p>Новинка</p>
+              </div>
+              {% endif %}
 
-                </div>
+              <div class="ColorValue">
 
-                <div class="ColorValue">
+                  <p class="ColorValueText">1 цвет</p>
 
-                    <p class="ColorValueText">2 цвета</p>
+              </div>
+              
 
-                </div>
-                
+              <div class="TextCard">
 
-                <div class="TextCard">
+                  <p class="NameCard">{{ product.title }}</p>
 
-                    <p class="NameCard">{{ product.title }}</p>
+                  <p class="PriceCard">₽ {{ product.price }}</p>
 
-                    <p class="PriceCard">₽ {{ product.price }}</p>
+                  <p class="NewPriceCard hidden">₽ 2400.00</p>
 
-                    <p class="NewPriceCard hidden">₽ 2400.00</p>
-
-                </div>
+              </div>
 
 
-            </a>
+          </a>
 
-        </div>
+      </div>
           {% endfor %}
           
 

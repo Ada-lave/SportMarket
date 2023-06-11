@@ -14,7 +14,7 @@
             {% if productstr %}
             <div class="CartHeader">Корзина товаров</div>
             {% else %}
-            <div class="CartHeader">Корзина товаров</div>
+            <div class="CartHeader">Корзина товаров пуста</div>
             {% endif %}
                 
                 <div class="line"></div>
@@ -201,7 +201,7 @@
 
                 setTimeout(function(){
                     location.reload();
-                      }, 1000);
+                      }, 1300);
             },
 
             deleteFromCart(prod_id){

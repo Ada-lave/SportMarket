@@ -12,7 +12,6 @@ urlpatterns = [
     ###Корзина###
     path('cart/', showCart, name='cart'),
     
-    path('/page<int:page>', paginationPage, name='pagination'),
 
     ###Поиск###
     path('search/', searhInMainPage, name='search'),
