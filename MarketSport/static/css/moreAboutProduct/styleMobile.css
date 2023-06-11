@@ -235,9 +235,7 @@
             font-weight: 600;
             font-size: 32px;
             line-height: 39px;
-            
             color: #000000;
-            
         }
         
         .Descripton{
@@ -254,13 +252,10 @@
         
         
         .ProductDescription{
-            
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 700;
             line-height: 39px;
-        
-        
         }
         
         .SpecificationsHeader{
@@ -351,6 +346,31 @@
         
         .MainImg{
 
+        }
+
+        .Anottation{
+            margin-left: 0px;
+        }
+
+        .AnottationText{
+            font-size: 12px;
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.1s;
+        }
+
+
+        .AnottationTextActive{
+            font-size: 13px;
+            width: 150px;
+            height: 40px;
+            position: absolute;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.1s;
         }
 
 

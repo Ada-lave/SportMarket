@@ -353,6 +353,33 @@
 
 
 
+
+        .Annotation{
+            margin-left: -10px;
+        }
+
+        .AnottationText{
+            
+            margin-left: 20px;
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.1s;
+        }
+
+
+        .AnottationTextActive{
+            margin-left: 20px;
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.1s;
+        }
+
 }
 
 
