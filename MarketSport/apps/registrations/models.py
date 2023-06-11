@@ -8,7 +8,9 @@ class Profile(models.Model):
     img = models.ImageField(null=True, blank=True)
 
 
-    
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
 
 
 

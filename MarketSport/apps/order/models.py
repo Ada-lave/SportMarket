@@ -12,6 +12,10 @@ class Order(models.Model):
     paid = models.BooleanField(default=False, verbose_name="Оплата")
     paid_amount = models.FloatField(blank=True, null=True, verbose_name="Сумма к оплате")
 
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+
     def __str__(self):
         return f"{self.name} заказ {self.id}"
     
@@ -21,6 +25,11 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Товар")
     price = models.FloatField(verbose_name="Цена")
     quantity = models.IntegerField(verbose_name="Количество")
+
+
+    class Meta:
+        verbose_name = 'Содержимое заказа'
+        verbose_name_plural = 'Содержимое заказа'
 
     def __str__(self):
         return f"{self.order.name} {self.product.title} {self.id}"
