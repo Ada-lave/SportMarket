@@ -102,7 +102,7 @@
 
 
 
-            <button class="AddCartBtn" v-on:click="addToCart({{ product.id }})">Добавить в корзину</button>
+            <button class="AddCartBtn" v-on:click="addToCart({{ product.id }})">[[ this.button ]]</button>
 
             </div>
 
@@ -233,9 +233,10 @@
 
     var app = new Vue({
         el: '#app',
+        delimiters: ['[[',']]'],
         data(){
             return {
-
+                button: 'Добавить  в корзину'
             }
         },
 
@@ -260,7 +261,12 @@
                     .catch(function error(){
                         console.log('Error 2')
                     })
+
+                
+                this.button = "Товар к корзине"
                 }
+
+                
         }
     })
 
