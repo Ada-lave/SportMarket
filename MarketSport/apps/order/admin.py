@@ -8,6 +8,7 @@ class OrderItemAdmin(admin.TabularInline):
 
 
 class OrederAdmin(admin.ModelAdmin):
+    list_display = ['id','name','address','mobile','paid_amount','paid']
     inlines = [OrderItemAdmin]
 
 

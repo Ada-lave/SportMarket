@@ -55,7 +55,7 @@
 
                                <div class="CardColorMain">
                                 <span>Цвет</span>
-                                <div class="CardColor" style="background-color: [[product.color]];"></div>
+                                <div class="CardColor" :style="{backgroundColor: product.color }"></div>
 
                                </div>
 
@@ -166,6 +166,7 @@
         store: store,
         data() {
             return {
+                activeColor: 'red',
                 region: "",
                 city: "",
                 street: "",

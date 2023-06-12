@@ -38,15 +38,12 @@ class Product(models.Model):
     image3 = models.ImageField(blank=True)
     image4 = models.ImageField(blank=True)
     avalible = models.BooleanField(
-        default=True, verbose_name='В наличии')
-    material = models.CharField(
-        max_length=400, verbose_name="Материал", blank=True)
+    default=True, verbose_name='В наличии')
+    material = models.CharField(max_length=400, verbose_name="Материал", blank=True)
     color = models.CharField(max_length=100, default='None')
-    sports_type = models.CharField(
-        max_length=40, verbose_name="Вид спорта")
+    sports_type = models.CharField(max_length=40, verbose_name="Вид спорта")
     season = models.CharField(max_length=40, verbose_name="Сезон")
-    gender = models.CharField(
-        max_length=40, choices=CHOICES_GENDER, verbose_name="Пол", blank=True)
+    gender = models.CharField(max_length=40, choices=CHOICES_GENDER, verbose_name="Пол", blank=True)
     brand = models.CharField(max_length=120, verbose_name="Брэнд")
     size = models.CharField(max_length=40, verbose_name="Размер")
 
