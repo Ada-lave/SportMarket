@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from .forms  import UserRegistrationForm, LoginUserForm
 import random
 from django.db import IntegrityError
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 
@@ -15,10 +17,17 @@ def registrationUser(request):
         if form.is_valid():
             print(form.cleaned_data['username'])
             if form.cleaned_data['password1'] == form.cleaned_data['password2']:
+
                 try:
+                    try:
+                        email = form.cleaned_data['email']
+                        validate_email(email)
+                    except ValidationError:
+                        messages.error(request, 'некорректно введен email')
+                        return redirect('signup')
 
                     user = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['first_name']\
-                        ,last_name=form.cleaned_data['last_name'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+                        ,last_name=form.cleaned_data['last_name'], email=email, password=form.cleaned_data['password1'])
 
                     profile = Profile(user=user, mobile=form.cleaned_data.get('mobile'), img=f'ProfileImages/{random.randint(1,5)}.png')
                     profile.save()

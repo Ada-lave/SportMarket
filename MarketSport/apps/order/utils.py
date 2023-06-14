@@ -38,6 +38,6 @@ def checkout(request,  address):
     email.content_subtype = 'html'
     email.send()
 
-    messages.success(request, "Ваш заказ успешно оформлен! В скором времени с вами свяжется менеджер")
+    messages.success(request, "Ваш заказ успешно оформлен! Вам на почту придет информация о заказе.")
         
     return order.id

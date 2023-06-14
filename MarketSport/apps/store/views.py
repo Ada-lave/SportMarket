@@ -2,8 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Product, Category
 
-def test(request):
-    return render(request, 'test.html')
 
 def TestDate(request):
     products = Product.objects.all()
